@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
           locale: "en_US",
           images: [
             {
-              url: "/images/me2.png",
+              url: "https://juanchristian.com/images/me2.png",
               width: 1080,
               height: 1080,
               alt: "Me",
