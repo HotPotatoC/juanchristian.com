@@ -31,10 +31,10 @@ const Project = (project: Project) => (
         )}`}
         className='z-0 opacity-60 md:opacity-0 md:group-hover:opacity-75 md:duration-150'
       />
-      <h2 className='relative z-10 font-display text-4xl md:text-7xl transform translate-x-4 md:translate-x-0 md:group-hover:translate-x-12 duration-500'>
+      <h2 className='relative z-10 font-display text-4xl md:text-7xl md:transform px-4 md:px-0 md:group-hover:translate-x-12 duration-500'>
         {project.name}
       </h2>
-      <section className='relative z-10 md:text-right transform translate-x-4 md:translate-x-0 md:group-hover:-translate-x-12 duration-500'>
+      <section className='relative z-10 md:text-right md:transform px-4 md:px-0 md:group-hover:-translate-x-12 duration-500'>
         <p className='font-medium text-lg md:text-xl'>{project.type}</p>
         <p className='font-medium text-lg md:text-xl'>{project.description}</p>
       </section>
