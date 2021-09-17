@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NextSeo } from "next-seo";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -15,6 +15,21 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
       <NextSeo
         title={title}
         description={description}
+        openGraph={{
+          title,
+          description,
+          type: "website",
+          url: "https://juanchristian.com",
+          locale: "en_US",
+          images: [
+            {
+              url: "/images/me2.png",
+              width: 1080,
+              height: 1080,
+              alt: "Me",
+            },
+          ],
+        }}
         canonical='https://juanchristian.com'
         twitter={{
           handle: "@juanwmv",
