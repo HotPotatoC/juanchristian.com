@@ -6,14 +6,15 @@ import CustomCursor from "./CustomCursor";
 
 type LayoutProps = {
   title: string;
+  description: string;
 };
 
-const Layout: React.FC<LayoutProps> = ({ children, title }) => {
+const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
   return (
     <>
       <NextSeo
         title={title}
-        description='Juan Christian is a Developer based in Jakarta, Indonesia.'
+        description={description}
         canonical='https://juanchristian.com'
         twitter={{
           handle: "@juanwmv",
