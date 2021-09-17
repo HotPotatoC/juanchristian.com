@@ -22,7 +22,6 @@ const Project = (project: Project) => (
       <Image
         src={project.image}
         alt={project.name}
-        priority={true}
         layout='fill'
         placeholder='blur'
         objectFit='cover'
@@ -30,14 +29,14 @@ const Project = (project: Project) => (
         blurDataURL={`data:image/svg+xml;base64,${toBase64(
           shimmer(1000, 1000)
         )}`}
-        className='z-0 opacity-0 group-hover:opacity-75 duration-150'
+        className='z-0 opacity-60 md:opacity-0 md:group-hover:opacity-75 md:duration-150'
       />
-      <h2 className='relative z-10 font-display text-4xl md:text-7xl md:transform md:group-hover:translate-x-12 duration-500'>
+      <h2 className='relative z-10 font-display text-4xl md:text-7xl transform translate-x-4 md:translate-x-0 md:group-hover:translate-x-12 duration-500'>
         {project.name}
       </h2>
-      <section className='relative z-10 md:text-right md:transform md:group-hover:-translate-x-12 duration-500'>
-        <p className='font-medium text-xl'>{project.type}</p>
-        <p className='font-medium text-xl'>{project.description}</p>
+      <section className='relative z-10 md:text-right transform translate-x-4 md:translate-x-0 md:group-hover:-translate-x-12 duration-500'>
+        <p className='font-medium text-lg md:text-xl'>{project.type}</p>
+        <p className='font-medium text-lg md:text-xl'>{project.description}</p>
       </section>
     </a>
   </div>
