@@ -13,9 +13,9 @@ const Hero = () => {
           left: `${(Math.round(scrollY) + 120) * -1}px`,
         }}
       >
-        <h1 className='font-black uppercase text-[340px] md:text-[650px] text-stroke text-stroke-primary text-transparent select-none opacity-50'>
+        <div className='font-black uppercase text-[340px] md:text-[650px] text-stroke text-stroke-primary text-transparent select-none opacity-50'>
           juan
-        </h1>
+        </div>
       </div>
       <div
         className='absolute top-[15%] md:top-[-33.3%] z-10'
@@ -23,9 +23,9 @@ const Hero = () => {
           left: `${Math.round(scrollY) - 120}px`,
         }}
       >
-        <h1 className='font-black uppercase text-[340px] md:text-[650px] text-stroke text-stroke-primary text-transparent select-none opacity-50'>
+        <div className='font-black uppercase text-[340px] md:text-[650px] text-stroke text-stroke-primary text-transparent select-none opacity-50'>
           juan
-        </h1>
+        </div>
       </div>
 
       <ContentWrapper extraClass='px-6 md:px-32 py-24'>
@@ -42,15 +42,15 @@ const Hero = () => {
           id='hero-footer'
           className='hero-footer relative z-20 mt-32 flex justify-between items-baseline'
         >
-          <h1 className='hidden md:block font-medium text-2xl'>
+          <p className='hidden md:block font-medium text-2xl'>
             © {new Date().getFullYear()} — Juan Christian
-          </h1>
-          <h1 className='block md:hidden font-medium text-xl'>
+          </p>
+          <p className='block md:hidden font-medium text-xl'>
             © {new Date().getFullYear()} — J.C
-          </h1>
-          <h1 className='font-medium text-xl md:text-2xl'>
+          </p>
+          <p className='font-medium text-xl md:text-2xl'>
             <a href='mailto:juandotulung@gmail.com'>E-MAIL</a>
-          </h1>
+          </p>
         </section>
       </ContentWrapper>
     </section>

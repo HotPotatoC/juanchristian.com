@@ -9,7 +9,7 @@ const Me = () => {
   const [mouseX, mouseY] = useMousePosition();
   return (
     <section id='me' className='me relative mt-32'>
-      <ContentWrapper extraClass='flex px-6 md:px-32 py-24 group'>
+      <ContentWrapper extraClass='flex px-6 md:px-32 py-24 group overflow-hidden'>
         <div className='z-10 w-full md:w-3/4'>
           <p className='font-medium text-2xl md:text-4xl tracking-tight uppercase mb-8'>
             Hello 👋 My name is Juan Christian.

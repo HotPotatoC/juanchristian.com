@@ -3,7 +3,7 @@ import Link from "next/link";
 import ContentWrapper from "./ContentWrapper";
 
 const Socials = () => (
-  <div className='flex flex-col space-y-4'>
+  <div className='flex flex-1 flex-col space-y-4'>
     <a
       href='https://github.com/HotPotatoC'
       className='text-xl opacity-60 hover:opacity-100 duration-150'
@@ -32,7 +32,7 @@ const Socials = () => (
 );
 
 const Links = () => (
-  <div className='flex flex-col space-y-4'>
+  <div className='flex flex-1 flex-col space-y-4'>
     <Link href='/' passHref={true}>
       <span className='text-xl opacity-60 hover:opacity-100 duration-150'>
         Home
@@ -66,9 +66,9 @@ const Footer = () => (
       </div>
 
       <div className='flex justify-between items-baseline mt-8 pt-6 border-t-2 border-white border-opacity-75'>
-        <h1 className='text-xl opacity-60'>
+        <span className='text-xl opacity-60'>
           © {new Date().getFullYear()} — Juan Christian
-        </h1>
+        </span>
         <Link href='/' passHref={true}>
           <span className='text-xl opacity-60 hover:opacity-100 duration-150'>
             TOP

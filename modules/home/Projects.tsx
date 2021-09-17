@@ -32,9 +32,9 @@ const Project = (project: Project) => (
         )}`}
         className='z-0 opacity-0 group-hover:opacity-75 duration-150'
       />
-      <h1 className='relative z-10 font-display text-4xl md:text-7xl md:transform md:group-hover:translate-x-12 duration-500'>
+      <h2 className='relative z-10 font-display text-4xl md:text-7xl md:transform md:group-hover:translate-x-12 duration-500'>
         {project.name}
-      </h1>
+      </h2>
       <section className='relative z-10 md:text-right md:transform md:group-hover:-translate-x-12 duration-500'>
         <p className='font-medium text-xl'>{project.type}</p>
         <p className='font-medium text-xl'>{project.description}</p>

@@ -4,9 +4,9 @@ import ContentWrapper from "../../shared/ContentWrapper";
 const Toolbelt = () => (
   <div className='flex flex-wrap mb-12'>
     <div className='w-full lg:w-1/3'>
-      <h1 className='font-display text-2xl md:text-4xl tracking-tight uppercase'>
+      <h2 className='font-display text-2xl md:text-4xl tracking-tight uppercase'>
         Skills
-      </h1>
+      </h2>
     </div>
     <div className='w-full lg:w-2/3'>
       <p className='font-medium text-2xl tracking-tight mb-4'>
@@ -28,9 +28,9 @@ const Toolbelt = () => (
 const Education = () => (
   <div className='flex flex-wrap mb-12'>
     <div className='w-full lg:w-1/3'>
-      <h1 className='font-display text-2xl md:text-4xl tracking-tight uppercase'>
+      <h2 className='font-display text-2xl md:text-4xl tracking-tight uppercase'>
         Education
-      </h1>
+      </h2>
     </div>
     <div className='w-full lg:w-2/3'>
       <p className='font-medium text-2xl tracking-tight mb-4'>
