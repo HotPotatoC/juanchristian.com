@@ -26,7 +26,7 @@ const Me = () => {
         </div>
 
         <div
-          className='absolute z-0 -ml-64 -mt-96'
+          className='absolute z-0 -ml-64 -mt-96 hidden md:block'
           style={{
             transition: "0.75s cubic-bezier(0.19, 1.0, 0.22, 1.0)",
             left: `${mouseX}px`,
