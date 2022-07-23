@@ -10,7 +10,7 @@ const Toolbelt = () => (
     </div>
     <div className='w-full lg:w-2/3'>
       <p className='font-medium text-2xl tracking-tight mb-4'>
-        JAVASCRIPT / TYPESCRIPT / GOLANG / PHP / PYTHON
+        GOLANG / JAVASCRIPT / TYPESCRIPT
       </p>
       <p className='font-medium text-2xl tracking-tight mb-4'>
         VUE.JS / REACT.JS / NODE.JS / DOCKER
@@ -19,7 +19,7 @@ const Toolbelt = () => (
         MYSQL / POSTGRESQL / MONGODB / REDIS
       </p>
       <p className='font-medium text-2xl tracking-tight'>
-        ADOBE XD / FIGMA / GIT / GITHUB / TRELLO
+        FIGMA / GIT / GITHUB
       </p>
     </div>
   </div>
