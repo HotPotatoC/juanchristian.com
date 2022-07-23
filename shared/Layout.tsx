@@ -3,7 +3,6 @@ import { NextSeo } from "next-seo";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CustomCursor from "./CustomCursor";
-import FilmGrainBackground from "./FilmGrainBackground";
 
 type LayoutProps = {
   title: string;
@@ -38,7 +37,6 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
           cardType: "summary_large_image",
         }}
       />
-      <FilmGrainBackground />
       <CustomCursor />
       <Navbar />
       <main>{children}</main>
