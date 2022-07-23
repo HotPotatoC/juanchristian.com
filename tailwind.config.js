@@ -1,11 +1,9 @@
 module.exports = {
-  mode: "jit",
-  purge: [
+  content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./shared/**/*.{js,ts,jsx,tsx}",
     "./modules/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
       sans: ["Satoshi-Regular", "sans-serif"],
@@ -19,12 +17,6 @@ module.exports = {
         white: "#eee",
         black: "#1b1b1b",
       },
-    },
-  },
-  variants: {
-    extend: {
-      transform: ["group-hover"],
-      translate: ["group-hover"],
     },
   },
   plugins: [],
