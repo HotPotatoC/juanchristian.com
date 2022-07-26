@@ -1,82 +1,78 @@
-import React from "react";
-import Link from "next/link";
-import ContentWrapper from "./ContentWrapper";
+import Link from 'next/link'
+import ContentWrapper from './ContentWrapper'
 
 const Socials = () => (
-  <div className='flex flex-1 flex-col space-y-4'>
+  <div className="flex space-x-4">
     <a
-      href='https://github.com/HotPotatoC'
-      className='text-xl opacity-60 hover:opacity-100 duration-150'
+      href="https://github.com/HotPotatoC"
+      className="text-xl opacity-60 hover:opacity-100 duration-150"
     >
-      GitHub
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+      >
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+      </svg>
     </a>
     <a
-      href='https://instagram.com/juanwmv.dev'
-      className='text-xl opacity-60 hover:opacity-100 duration-150'
+      href="https://instagram.com/juanchristian.dev"
+      className="text-xl opacity-60 hover:opacity-100 duration-150"
     >
-      Instagram
+      <svg
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 30 30"
+        width="32"
+        height="32"
+      >
+        <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z" />
+      </svg>
     </a>
     <a
-      href='https://twitter.com/juanwmv'
-      className='text-xl opacity-60 hover:opacity-100 duration-150'
+      href="https://twitter.com/juanwmv"
+      className="text-xl opacity-60 hover:opacity-100 duration-150"
     >
-      Twitter
-    </a>
-    <a
-      href='https://dev.to/HotPotatoC'
-      className='text-xl opacity-60 hover:opacity-100 duration-150'
-    >
-      DEV.to
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+      >
+        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+      </svg>
     </a>
   </div>
-);
-
-const Links = () => (
-  <div className='flex flex-1 flex-col space-y-4'>
-    <Link href='/' passHref={true}>
-      <span className='text-xl opacity-60 hover:opacity-100 duration-150'>
-        Home
-      </span>
-    </Link>
-    <Link href='/#projects' passHref={true}>
-      <span className='text-xl opacity-60 hover:opacity-100 duration-150'>
-        Projects
-      </span>
-    </Link>
-    <Link href='/#about' passHref={true}>
-      <span className='text-xl opacity-60 hover:opacity-100 duration-150'>
-        About
-      </span>
-    </Link>
-  </div>
-);
+)
 
 const Footer = () => (
-  <footer className='w-full py-6'>
-    <ContentWrapper extraClass='px-6 md:px-32 pt-12'>
-      <div className='grid grid-cols-2 lg:grid-cols-3 gap-6'>
+  <footer className="w-full py-6">
+    <ContentWrapper extraClass="px-6 md:px-2 pt-12">
+      <div className="flex justify-between items-baseline mt-8 pt-6 border-t border-black dark:border-white">
+        <div className="flex space-x-6">
+          <p className="text-xl font-medium hover:text-primary duration-150">
+            <Link href="/#projects">projects</Link>
+          </p>
+          <p className="text-xl font-medium hover:text-primary duration-150">
+            <Link href="/#about">about</Link>
+          </p>
+          <p className="text-xl font-medium hover:text-primary duration-150">
+            <Link href="mailto:juandotulung@gmail.com">get in touch</Link>
+          </p>
+          <p className="text-xl font-medium hover:text-primary duration-150">
+            <Link href="https://github.com/HotPotatoC/juanchristian.com">
+              source code
+            </Link>
+          </p>
+        </div>
         <Socials />
-        <Links />
-        <a
-          href='mailto:juandotulung@gmail.com'
-          className='text-xl hover:text-primary duration-150'
-        >
-          juandotulung@gmail.com
-        </a>
-      </div>
-
-      <div className='flex justify-between items-baseline mt-8 pt-6 border-t-2 border-white border-opacity-75'>
-        <span className='text-xl opacity-60'>
-          © {new Date().getFullYear()} — Juan Christian
-        </span>
-        <Link href='/' passHref={true}>
-          <span className='text-xl opacity-60 hover:opacity-100 duration-150'>
-            TOP
-          </span>
-        </Link>
+        {/* <p className="text-xl opacity-60 hover:opacity-100 duration-150">
+          <Link href="/">TOP</Link>
+        </p> */}
       </div>
     </ContentWrapper>
   </footer>
-);
+)
 
-export default Footer;
+export default Footer

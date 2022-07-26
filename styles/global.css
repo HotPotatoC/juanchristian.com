@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html * {
+html :is(a, button, span[href], .expand-cursor):hover {
   cursor: none;
 }
 
@@ -16,8 +16,8 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  color: #eee;
-  background-color: #1b1b1b;
+  color: #262626;
+  background-color: #f6f5f1;
   overflow-x: hidden;
 }
 
@@ -27,40 +27,80 @@ body {
 }
 
 @font-face {
-  font-family: "Satoshi-Regular";
-  src: url("/fonts/Satoshi-Regular.woff2") format("woff2"),
-    url("/fonts/Satoshi-Regular.woff") format("woff"),
-    url("/fonts/Satoshi-Regular.ttf") format("truetype");
+  font-family: 'Satoshi-Regular';
+  src: url('/fonts/Satoshi-Regular.woff2') format('woff2'),
+    url('/fonts/Satoshi-Regular.woff') format('woff'),
+    url('/fonts/Satoshi-Regular.ttf') format('truetype');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Satoshi-Medium";
-  src: url("/fonts/Satoshi-Medium.woff2") format("woff2"),
-    url("/fonts/Satoshi-Medium.woff") format("woff"),
-    url("/fonts/Satoshi-Medium.ttf") format("truetype");
+  font-family: 'Satoshi-Medium';
+  src: url('/fonts/Satoshi-Medium.woff2') format('woff2'),
+    url('/fonts/Satoshi-Medium.woff') format('woff'),
+    url('/fonts/Satoshi-Medium.ttf') format('truetype');
   font-weight: 500;
   font-display: swap;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Satoshi-Bold";
-  src: url("/fonts/Satoshi-Bold.woff2") format("woff2"),
-    url("/fonts/Satoshi-Bold.woff") format("woff"),
-    url("/fonts/Satoshi-Bold.ttf") format("truetype");
+  font-family: 'Satoshi-Bold';
+  src: url('/fonts/Satoshi-Bold.woff2') format('woff2'),
+    url('/fonts/Satoshi-Bold.woff') format('woff'),
+    url('/fonts/Satoshi-Bold.ttf') format('truetype');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Satoshi-Black";
-  src: url("/fonts/Satoshi-Black.woff2") format("woff2"),
-    url("/fonts/Satoshi-Black.woff") format("woff"),
-    url("/fonts/Satoshi-Black.ttf") format("truetype");
+  font-family: 'Satoshi-Black';
+  src: url('/fonts/Satoshi-Black.woff2') format('woff2'),
+    url('/fonts/Satoshi-Black.woff') format('woff'),
+    url('/fonts/Satoshi-Black.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeneralSans-Regular';
+  src: url('/fonts/GeneralSans-Regular.woff2') format('woff2'),
+    url('/fonts/GeneralSans-Regular.woff') format('woff'),
+    url('/fonts/GeneralSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeneralSans-Medium';
+  src: url('/fonts/GeneralSans-Medium.woff2') format('woff2'),
+    url('/fonts/GeneralSans-Medium.woff') format('woff'),
+    url('/fonts/GeneralSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeneralSans-Semibold';
+  src: url('/fonts/GeneralSans-Semibold.woff2') format('woff2'),
+    url('/fonts/GeneralSans-Semibold.woff') format('woff'),
+    url('/fonts/GeneralSans-Semibold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeneralSans-Black';
+  src: url('/fonts/GeneralSans-Black.woff2') format('woff2'),
+    url('/fonts/GeneralSans-Black.woff') format('woff'),
+    url('/fonts/GeneralSans-Black.ttf') format('truetype');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
@@ -76,7 +116,7 @@ body {
 
 .film-grain-background::after {
   background: linear-gradient(rgba(27, 27, 27, 0.95), rgba(27, 27, 27, 0.95)),
-    url("/images/grain.png");
+    url('/images/grain.png');
 
   animation: grain 0.75s steps(6) infinite;
 }
