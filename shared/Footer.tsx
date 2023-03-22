@@ -50,7 +50,7 @@ const Socials = () => (
 
 const Footer = () => (
   <footer className="w-full py-6">
-    <ContentWrapper extraClass="px-6 md:px-2 pt-12">
+    <ContentWrapper extraClass="px-6 md:px-12 pt-12">
       <div className="flex flex-col md:flex-row justify-between items-baseline mt-8 pt-6 border-t border-black dark:border-white">
         <div className="mb-4 md:mb-0 grid grid-cols-2 md:grid-cols-4 gap-6">
           <p className="text-xl font-medium hover:text-primary duration-150">
