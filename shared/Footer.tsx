@@ -8,6 +8,7 @@ const Socials = () => (
       className="text-xl opacity-60 hover:opacity-100 duration-150"
     >
       <svg
+        className="fill-black dark:fill-white"
         xmlns="http://www.w3.org/2000/svg"
         width="32"
         height="32"
@@ -21,7 +22,7 @@ const Socials = () => (
       className="text-xl opacity-60 hover:opacity-100 duration-150"
     >
       <svg
-        fill="#000000"
+        className="fill-black dark:fill-white"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 30 30"
         width="32"
@@ -35,6 +36,7 @@ const Socials = () => (
       className="text-xl opacity-60 hover:opacity-100 duration-150"
     >
       <svg
+        className="fill-black dark:fill-white"
         xmlns="http://www.w3.org/2000/svg"
         width="32"
         height="32"
@@ -49,8 +51,8 @@ const Socials = () => (
 const Footer = () => (
   <footer className="w-full py-6">
     <ContentWrapper extraClass="px-6 md:px-2 pt-12">
-      <div className="flex justify-between items-baseline mt-8 pt-6 border-t border-black dark:border-white">
-        <div className="flex space-x-6">
+      <div className="flex flex-col md:flex-row justify-between items-baseline mt-8 pt-6 border-t border-black dark:border-white">
+        <div className="mb-4 md:mb-0 grid grid-cols-2 md:grid-cols-4 gap-6">
           <p className="text-xl font-medium hover:text-primary duration-150">
             <Link href="/#projects">projects</Link>
           </p>

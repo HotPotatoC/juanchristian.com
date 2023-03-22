@@ -1,6 +1,6 @@
+import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import ContentWrapper from './ContentWrapper'
-import { useTheme } from 'next-themes'
 
 const SwitchDarkMode = () => {
   const MoonIcon = () => (
@@ -60,19 +60,19 @@ const SwitchDarkMode = () => {
 
 const Navbar = () => (
   <nav className="w-full py-2">
-    <ContentWrapper extraClass="px-6 md:px-2 pt-12">
+    <ContentWrapper extraClass="px-6 md:px-12 pt-12">
       <div className="flex justify-between items-center">
         <div className="font-semibold text-xl md:text-xl">
           <Link href="/">juanchristian</Link>
         </div>
         <div className="flex space-x-8">
-          <div className="font-semibold text-xl md:text-xl">
+          <div className="hidden md:block font-semibold text-xl md:text-xl">
             <Link href="/#portfolio">portfolio</Link>
           </div>
-          <div className="font-semibold text-xl md:text-xl">
+          <div className="hidden md:block font-semibold text-xl md:text-xl">
             <Link href="/about">about me</Link>
           </div>
-          <div className="font-semibold text-xl md:text-xl">
+          <div className="hidden md:block font-semibold text-xl md:text-xl">
             <Link href="mailto:juandotulung@gmail.com">get in touch</Link>
           </div>
           <SwitchDarkMode />

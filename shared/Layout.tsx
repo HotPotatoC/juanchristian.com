@@ -1,14 +1,17 @@
 import { NextSeo } from 'next-seo'
-import Navbar from './Navbar'
-import Footer from './Footer'
+import type { ReactNode } from 'react'
+
 import CustomCursor from './CustomCursor'
+import Footer from './Footer'
+import Navbar from './Navbar'
 
 type LayoutProps = {
+  children: ReactNode
   title: string
   description: string
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
+const Layout = ({ children, title, description }: LayoutProps) => {
   return (
     <>
       <NextSeo

@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import { shimmer, toBase64 } from '../../lib/utils'
 import ContentWrapper from '../../shared/ContentWrapper'
 
@@ -61,8 +61,8 @@ export const Portfolio = () => {
       id="portfolio"
       className="portfolio relative z-20 mt-12 tracking-tighter"
     >
-      <ContentWrapper extraClass="px-6 md:px-2 lg:px-48 py-24">
-        <div className="grid md:grid-cols-2 gap-32">
+      <ContentWrapper extraClass="px-6 md:px-6 lg:px-48 py-6 md:py-24">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-32">
           {works.map((work) => {
             return (
               <div className="flex flex-col relative space-y-6" key={work.path}>
@@ -71,17 +71,14 @@ export const Portfolio = () => {
                   alt={work.label}
                   width={1000}
                   height={500}
-                  layout="responsive"
                   placeholder="blur"
-                  objectFit="cover"
-                  objectPosition="center"
                   blurDataURL={`data:image/svg+xml;base64,${toBase64(
                     shimmer(1000, 1000)
                   )}`}
-                  className="w-full rounded-3xl overflow-hidden"
+                  className="w-full rounded-xl md:rounded-3xl overflow-hidden"
                 />
                 <section>
-                  <h2 className="text-5xl font-semibold mb-6">
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-6">
                     {work.description}
                   </h2>
                   <Link href={work.path} passHref>

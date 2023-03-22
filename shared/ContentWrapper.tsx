@@ -1,10 +1,14 @@
+import type { ReactNode } from 'react'
+
 type ContentWrapperProps = {
+  children: ReactNode
   extraClass?: string
 }
 
-const ContentWrapper: React.FC<ContentWrapperProps> = ({
-  children,
-  extraClass,
-}) => <div className={`container mx-auto ${extraClass}`}>{children}</div>
+const ContentWrapper = (props: ContentWrapperProps) => (
+  <div className={`container mx-auto ${props.extraClass}`}>
+    {props.children}
+  </div>
+)
 
 export default ContentWrapper
