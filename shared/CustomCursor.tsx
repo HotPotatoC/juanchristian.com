@@ -77,7 +77,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className="z-[100] opacity-0 pointer-events-none fixed transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-white rounded-full mix-blend-difference"
+      className="opacity-0 pointer-events-none fixed z-[999] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-white rounded-full mix-blend-difference"
       style={inner}
     ></div>
   )

@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo'
+import dynamic from 'next/dynamic'
 import type { ReactNode } from 'react'
 
-import CustomCursor from './CustomCursor'
 import Footer from './Footer'
 import Navbar from './Navbar'
 
@@ -10,6 +10,10 @@ type LayoutProps = {
   title: string
   description: string
 }
+
+const DynamicCustomCursor = dynamic(() => import('./CustomCursor'), {
+  ssr: false,
+})
 
 const Layout = ({ children, title, description }: LayoutProps) => {
   return (
@@ -39,7 +43,7 @@ const Layout = ({ children, title, description }: LayoutProps) => {
           cardType: 'summary_large_image',
         }}
       />
-      <CustomCursor />
+      <DynamicCustomCursor />
       <Navbar />
       <main>{children}</main>
       <Footer />

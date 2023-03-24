@@ -1,14 +1,17 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import ContentWrapper from './ContentWrapper'
+import IconRightArrow from './icons/IconRightArrow'
 
 const SwitchDarkMode = () => {
   const MoonIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="icon icon-tabler icon-tabler-moon-stars"
-      width="24"
-      height="24"
+      width="32"
+      height="32"
       viewBox="0 0 24 24"
       strokeWidth="2"
       stroke="currentColor"
@@ -27,8 +30,8 @@ const SwitchDarkMode = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="icon icon-tabler icon-tabler-sun-high"
-      width="24"
-      height="24"
+      width="32"
+      height="32"
       viewBox="0 0 24 24"
       strokeWidth="2"
       stroke="currentColor"
@@ -49,37 +52,102 @@ const SwitchDarkMode = () => {
     </svg>
   )
 
+  const [mounted, setMounted] = useState(false)
+
   const { theme, setTheme } = useTheme()
 
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
+
   return (
-    <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+    <button
+      className="z-50 focus:outline-none"
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+    >
       {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
     </button>
   )
 }
 
-const Navbar = () => (
-  <nav className="w-full py-2">
-    <ContentWrapper extraClass="px-6 md:px-12 pt-12">
-      <div className="flex justify-between items-center">
-        <div className="font-semibold text-xl md:text-xl">
-          <Link href="/">juanchristian</Link>
-        </div>
-        <div className="flex space-x-8">
-          <div className="hidden md:block font-semibold text-xl md:text-xl">
-            <Link href="/#portfolio">portfolio</Link>
-          </div>
-          <div className="hidden md:block font-semibold text-xl md:text-xl">
-            <Link href="/about">about me</Link>
-          </div>
-          <div className="hidden md:block font-semibold text-xl md:text-xl">
-            <Link href="mailto:juandotulung@gmail.com">get in touch</Link>
-          </div>
-          <SwitchDarkMode />
-        </div>
-      </div>
-    </ContentWrapper>
-  </nav>
+type NavLinkProps = {
+  to: string
+  label: string
+  onClick?: () => void
+}
+
+const NavLink = ({ to, label, onClick }: NavLinkProps) => (
+  <Link
+    href={to}
+    className="expand-cursor font-display text-4xl md:text-9xl tracking-tighter overflow-hidden"
+    onClick={onClick}
+  >
+    <motion.div
+      whileHover={{ x: 150 }}
+      transition={{
+        duration: 0.5,
+        ease: [0.19, 1.0, 0.22, 1.0],
+      }}
+      className="relative flex items-center space-x-4"
+    >
+      <IconRightArrow className="absolute left-[-175px]" />
+      <h1>{label}</h1>
+    </motion.div>
+  </Link>
 )
+
+type NavbarOverlayProps = {
+  close: () => void
+}
+
+const NavbarOverlay = ({ close }: NavbarOverlayProps) => {
+  return (
+    <motion.nav
+      initial={{ height: 0 }}
+      animate={{ height: '100vh' }}
+      exit={{ height: 0 }}
+      transition={{
+        duration: 1,
+        ease: [0.19, 1.0, 0.22, 1.0],
+      }}
+      className="fixed top-0 left-0 overflow-hidden z-[49] w-screen bg-white dark:bg-black"
+    >
+      <ContentWrapper extraClass="px-6 md:px-12 pt-64">
+        <div className="flex flex-col space-y-12">
+          <NavLink to="/" label="HOME" onClick={close} />
+          <NavLink to="/about" label="ABOUT" onClick={close} />
+          <NavLink to="/#portfolio" label="PORTFOLIO" onClick={close} />
+        </div>
+      </ContentWrapper>
+    </motion.nav>
+  )
+}
+
+const Navbar = () => {
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false)
+
+  const closeOverlay = () => setIsOverlayOpen(false)
+
+  return (
+    <>
+      <AnimatePresence>
+        {isOverlayOpen && <NavbarOverlay close={closeOverlay} />}
+      </AnimatePresence>
+      <nav className="w-full py-2">
+        <ContentWrapper extraClass="px-6 md:px-12 pt-12">
+          <div className="flex justify-between items-center">
+            <button
+              className="z-50 px-6 py-3 md:px-12 md:py-4 border border-black dark:border-white rounded-full font-display text-2xl md:text-4xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black duration-100 focus:outline-none"
+              onClick={() => setIsOverlayOpen(!isOverlayOpen)}
+            >
+              {isOverlayOpen ? 'CLOSE' : 'MENU'}
+            </button>
+            <SwitchDarkMode />
+          </div>
+        </ContentWrapper>
+      </nav>
+    </>
+  )
+}
 
 export default Navbar

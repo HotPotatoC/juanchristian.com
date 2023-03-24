@@ -2,11 +2,11 @@ import ContentWrapper from '../../shared/ContentWrapper'
 
 export const Introduction = () => {
   return (
-    <ContentWrapper extraClass="px-6 md:px-2 lg:px-48 py-24">
-      <h1 className="font-display text-7xl mb-12">
+    <ContentWrapper extraClass="px-6 md:px-12 md:pt-24 lg:pt-48 md:pb-24">
+      <h1 className="my-12 font-display text-4xl md:text-7xl lg:text-8xl">
         Hello, I am Juan.
       </h1>
-      <h1 className="font-display text-7xl">
+      <h1 className="font-display text-4xl md:text-7xl lg:text-8xl">
         I am a multidisciplinary software developer with a passion for code,
         technology, and modern tools.
       </h1>
