@@ -12,6 +12,20 @@ type Work = {
 
 const works: Work[] = [
   {
+    label: 'Lexo (Microsoft Imagine Cup)',
+    path: '/portfolio/lexo',
+    description:
+      'Bionic reading camera for dyslexic people using computer vision',
+    image: '/images/lexo.png',
+  },
+  {
+    label: 'stashable (GEMASTIK competition)',
+    path: '/portfolio/stashable',
+    description:
+      'Platform for users to reserve a place to store their goods in the warehouse',
+    image: '/images/stashable.png',
+  },
+  {
     label: 'mindzzle (Ceased Operations)',
     path: '/portfolio/mindzzle',
     description: 'Developing integrated Human Capital Management Platform',
