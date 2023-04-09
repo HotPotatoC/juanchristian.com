@@ -3,7 +3,7 @@ import ContentWrapper from '../../shared/ContentWrapper'
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden text-black dark:text-white">
       <ContentWrapper extraClass="px-6 md:px-12 md:pt-24 lg:pt-48 pb-24">
         <section
           id="hero"
