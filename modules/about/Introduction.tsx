@@ -2,7 +2,7 @@ import ContentWrapper from '../../shared/ContentWrapper'
 
 export const Introduction = () => {
   return (
-    <ContentWrapper extraClass="px-6 md:px-12 md:pt-24 lg:pt-36 md:pb-24 text-black dark:text-white">
+    <ContentWrapper extraClass="px-6 md:px-12 md:pt-24 lg:pt-36 md:pb-24">
       <h1 className="my-12 font-display text-4xl md:text-7xl lg:text-8xl">
         Hello, I am Juan.
       </h1>

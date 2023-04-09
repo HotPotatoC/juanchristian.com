@@ -73,7 +73,7 @@ export const Portfolio = () => {
   return (
     <section
       id="portfolio"
-      className="portfolio relative z-20 mt-12 tracking-tighter text-black dark:text-white"
+      className="portfolio relative z-20 mt-12 tracking-tighter"
     >
       <ContentWrapper extraClass="px-6 md:px-6 lg:px-48 py-6 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 md:gap-32">

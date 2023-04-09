@@ -44,10 +44,7 @@ const Education = () => (
 )
 
 const Skills = () => (
-  <section
-    id="skills"
-    className="skills mt-6 md:mt-24 text-black dark:text-white"
-  >
+  <section id="skills" className="skills mt-6 md:mt-24">
     <ContentWrapper extraClass="px-6 md:px-2 lg:px-48 py-24">
       <Toolbelt />
       <Education />
