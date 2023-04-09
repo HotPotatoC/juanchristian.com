@@ -1,9 +1,11 @@
-import { useRouter } from 'next/router'
+'use client'
+
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import useMousePosition from '../shared-hooks/useMousePosition'
 
 const CustomCursor = () => {
-  const router = useRouter()
+  const pathname = usePathname()
   const [hovered, setHovered] = useState(false)
   const [clicked, setClicked] = useState(false)
   const [x, y] = useMousePosition()
@@ -13,7 +15,7 @@ const CustomCursor = () => {
     hoverEventListeners()
     return () => removeEventListeners()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.pathname]) // Passed location.key as dependency to keep on registering handlers on page change
+  }, [pathname]) // Passed location.key as dependency to keep on registering handlers on page change
 
   const addEventListeners = () => {
     document.addEventListener('mousedown', onMouseDown)
