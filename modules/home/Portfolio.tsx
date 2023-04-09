@@ -35,7 +35,7 @@ const works: Work[] = [
     label: 'twitter clone',
     path: '/portfolio/twitterclone',
     description: 'An attempt to recreate the top social network app',
-    image: '/images/twitterclone.gif',
+    image: '/images/twitterclone.jpg',
   },
   {
     label: 'kvstore',
