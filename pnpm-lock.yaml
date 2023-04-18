@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@types/node': ^18.0.6
   '@types/react': ^18.0.21
+  '@vercel/analytics': ^0.1.11
   autoprefixer: ^10.4.7
   eslint: 7.32.0
   eslint-config-next: 13.2.4
@@ -17,6 +18,7 @@ specifiers:
   typescript: 4.4.3
 
 dependencies:
+  '@vercel/analytics': 0.1.11_react@18.2.0
   framer-motion: 7.10.3_biqbaboplfbrettd7655fr4n2y
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   next-seo: 4.29.0_ld2jel3hspngo3u5lti2kgl2sq
@@ -410,6 +412,14 @@ packages:
       '@typescript-eslint/types': 5.56.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.11_react@18.2.0:
+    resolution: {integrity: sha512-mj5CPR02y0BRs1tN3oZcBNAX9a8NxsIUl9vElDPcqxnMfP0RbRc9fI9Ud7+QDg/1Izvt5uMumsr+6YsmVHcyuw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /acorn-jsx/5.3.2_acorn@7.4.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}

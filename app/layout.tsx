@@ -1,12 +1,11 @@
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import '../styles/global.css'
-
 import { createSEO } from '../lib/seo'
-
 import Footer from '../shared/Footer'
 import Navbar from '../shared/Navbar'
 import ThemeProvider from '../shared/ThemeProvider'
+import '../styles/global.css'
 
 export const metadata: Metadata = createSEO({
   title: 'Juan Christian — Indonesian Developer',
@@ -31,6 +30,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
