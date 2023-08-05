@@ -1,62 +1,39 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { useEventListener } from '../shared-hooks/useEventListener'
 import useMousePosition from '../shared-hooks/useMousePosition'
 
 const CustomCursor = () => {
   const pathname = usePathname()
-  const [hovered, setHovered] = useState(false)
-  const [clicked, setClicked] = useState(false)
+  const [isActive, setIsActive] = useState(false)
+  const [isClicked, setIsClicked] = useState(false)
   const [x, y] = useMousePosition()
 
+  const onMouseUp = useCallback(() => setIsClicked(false), [])
+  const onMouseDown = useCallback(() => setIsClicked(true), [])
+
+  useEventListener('mousedown', onMouseDown)
+  useEventListener('mousedown', onMouseUp)
+
   useEffect(() => {
-    addEventListeners()
-    hoverEventListeners()
-    return () => removeEventListeners()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]) // Passed location.key as dependency to keep on registering handlers on page change
+    const targetEls = document.querySelectorAll(
+      ['a', 'button', 'span[href]', '.expand-cursor'].join(', ')
+    )
 
-  const addEventListeners = () => {
-    document.addEventListener('mousedown', onMouseDown)
-    document.addEventListener('mouseup', onMouseUp)
-  }
-
-  const removeEventListeners = () => {
-    document.removeEventListener('mousedown', onMouseDown)
-    document.removeEventListener('mouseup', onMouseUp)
-  }
-
-  const hoverEventListeners = () => {
-    document.querySelectorAll('a').forEach((el) => {
-      el.addEventListener('mouseenter', () => setHovered(true))
-      el.addEventListener('mouseleave', () => setHovered(false))
+    targetEls.forEach((el) => {
+      el.addEventListener('mouseenter', () => setIsActive(true))
+      el.addEventListener('mouseleave', () => setIsActive(false))
     })
 
-    document.querySelectorAll('button').forEach((el) => {
-      el.addEventListener('mouseenter', () => setHovered(true))
-      el.addEventListener('mouseleave', () => setHovered(false))
-    })
-
-    // for next/link components
-    document.querySelectorAll('span[href]').forEach((el) => {
-      el.addEventListener('mouseenter', () => setHovered(true))
-      el.addEventListener('mouseleave', () => setHovered(false))
-    })
-
-    document.querySelectorAll('.expand-cursor').forEach((el) => {
-      el.addEventListener('mouseenter', () => setHovered(true))
-      el.addEventListener('mouseleave', () => setHovered(false))
-    })
-  }
-
-  const onMouseUp = () => {
-    setClicked(false)
-  }
-
-  const onMouseDown = () => {
-    setClicked(true)
-  }
+    return () => {
+      targetEls.forEach((el) => {
+        el.removeEventListener('mouseenter', () => setIsActive(true))
+        el.removeEventListener('mouseleave', () => setIsActive(false))
+      })
+    }
+  }, [isActive, pathname])
 
   const inner: React.CSSProperties = {
     transition: 'opacity 0.3s, transform 0.3s ease',
@@ -64,14 +41,14 @@ const CustomCursor = () => {
     top: `${y}px`,
   }
 
-  if (hovered) {
+  if (isActive) {
     Object.assign(inner, {
       transform: 'translate(-50%, -50%) scale(3)',
       opacity: 1,
     })
   }
 
-  if (clicked) {
+  if (isClicked) {
     Object.assign(inner, {
       transform: 'translate(-50%, -50%) scale(-0.7)',
     })
