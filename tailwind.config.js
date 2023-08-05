@@ -11,11 +11,12 @@ module.exports = {
       medium: ['GeneralSans-Medium', 'sans-serif'],
       display: ['GeneralSans-Semibold', 'sans-serif'],
       black: ['GeneralSans-Black', 'sans-serif'],
+      nikea: ['NIKEA', 'GeneralSans-Semibold', 'sans-serif'],
     },
     extend: {
       colors: {
-        primary: '#814DF1',
-        white: '#e1e0d8',
+        primary: '#0043FF',
+        white: '#F8E9E2',
         black: '#151519',
       },
     },
