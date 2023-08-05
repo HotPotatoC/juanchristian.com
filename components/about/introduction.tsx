@@ -1,4 +1,4 @@
-import ContentWrapper from '../../components/content-wrapper'
+import ContentWrapper from '../ui/content-wrapper'
 
 export const Introduction = () => {
   return (

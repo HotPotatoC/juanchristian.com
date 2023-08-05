@@ -1,8 +1,8 @@
 'use client'
 import { AnimatePresence } from 'framer-motion'
-import Hero from '../modules/home/Hero'
-import { Portfolio } from '../modules/home/Portfolio'
-import Skills from '../modules/home/Skills'
+import Hero from '../components/home/Hero'
+import { Portfolio } from '../components/home/Portfolio'
+import Skills from '../components/home/Skills'
 
 export default function Page() {
   return (

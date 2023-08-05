@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import ContentWrapper from '../../components/content-wrapper'
+import ContentWrapper from '../../components/ui/content-wrapper'
 import {
   createFadeInTransition,
   createSlideUpTransition,
