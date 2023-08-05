@@ -1,10 +1,10 @@
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import ThemeProvider from '../components/theme-provider'
+import Footer from '../components/ui/footer'
+import Navbar from '../components/ui/navbar'
 import { createSEO } from '../lib/seo'
-import Footer from '../shared/footer'
-import Navbar from '../shared/navbar'
-import ThemeProvider from '../shared/theme-provider'
 import '../styles/global.css'
 
 export const metadata: Metadata = createSEO({
@@ -12,9 +12,12 @@ export const metadata: Metadata = createSEO({
   description: 'Juan Christian is a Developer based in Jakarta, Indonesia',
 })
 
-const DynamicCustomCursor = dynamic(() => import('../shared/custom-cursor'), {
-  ssr: true,
-})
+const DynamicCustomCursor = dynamic(
+  () => import('../components/ui/custom-cursor'),
+  {
+    ssr: true,
+  }
+)
 
 export default function RootLayout({
   children,

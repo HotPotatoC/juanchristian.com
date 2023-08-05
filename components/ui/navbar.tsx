@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import ContentWrapper from './content-wrapper'
-import IconRightArrow from './icons/icon-right-arrow'
+import ContentWrapper from '../content-wrapper'
+import IconRightArrow from '../icons/icon-right-arrow'
 
 const SwitchDarkMode = () => {
   const MoonIcon = () => (

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import ContentWrapper from '../../components/content-wrapper'
 import {
   createFadeInTransition,
   createSlideUpTransition,
 } from '../../lib/animation'
-import ContentWrapper from '../../shared/content-wrapper'
 
 const Hero = () => {
   return (
