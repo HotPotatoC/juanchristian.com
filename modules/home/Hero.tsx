@@ -4,7 +4,7 @@ import {
   createFadeInTransition,
   createSlideUpTransition,
 } from '../../lib/animation'
-import ContentWrapper from '../../shared/ContentWrapper'
+import ContentWrapper from '../../shared/content-wrapper'
 
 const Hero = () => {
   return (

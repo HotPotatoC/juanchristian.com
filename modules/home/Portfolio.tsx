@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { shimmer, toBase64 } from '../../lib/utils'
-import ContentWrapper from '../../shared/ContentWrapper'
+import ContentWrapper from '../../shared/content-wrapper'
 
 type Work = {
   path: string

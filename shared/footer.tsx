@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import ContentWrapper from './ContentWrapper'
+import ContentWrapper from './content-wrapper'
 
 const Socials = () => (
   <div className="flex space-x-4">

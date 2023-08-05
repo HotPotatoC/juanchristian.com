@@ -1,4 +1,4 @@
-import ContentWrapper from '../../shared/ContentWrapper'
+import ContentWrapper from '../../shared/content-wrapper'
 
 export const Introduction = () => {
   return (
