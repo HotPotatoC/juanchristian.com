@@ -2,8 +2,8 @@
 
 import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
-import { useEventListener } from '../shared-hooks/useEventListener'
-import useMousePosition from '../shared-hooks/useMousePosition'
+import { useEventListener } from '../hooks/useEventListener'
+import useMousePosition from '../hooks/useMousePosition'
 
 const CustomCursor = () => {
   const pathname = usePathname()
