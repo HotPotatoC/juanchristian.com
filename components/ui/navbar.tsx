@@ -3,7 +3,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useTransition } from '../../lib/animation'
 import IconRightArrow from '../icons/icon-right-arrow'
 import ContentWrapper from './content-wrapper'
 
@@ -54,21 +55,20 @@ const SwitchDarkMode = () => {
     </svg>
   )
 
-  const [mounted, setMounted] = useState(false)
-
   const { theme, setTheme } = useTheme()
 
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) return null
+  const transition = useTransition({ duration: 0.2 })
 
   return (
-    <button
+    <motion.button
       className="z-50 focus:outline-none"
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      whileHover={{ scale: 1.25, rotate: 360 }}
+      whileTap={{ scale: 0.8, rotate: 720 }}
+      transition={transition}
     >
       {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
-    </button>
+    </motion.button>
   )
 }
 

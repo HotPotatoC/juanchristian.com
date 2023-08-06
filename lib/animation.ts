@@ -1,5 +1,16 @@
 export const expoEaseInOut = [0.19, 1.0, 0.22, 1.0]
 
+type useTransitionArgs = { duration?: number; delay?: number }
+const defaultTransitionArgs = { duration: 3, delay: 0.1 }
+export const useTransition = ({
+  duration = defaultTransitionArgs.duration,
+  delay = defaultTransitionArgs.delay,
+}: useTransitionArgs = defaultTransitionArgs) => ({
+  duration,
+  ease: expoEaseInOut,
+  delay,
+})
+
 export const createSlideUpTransition = ({ duration = 3, delay = 0.1 }) => ({
   initial: {
     opacity: 0,
