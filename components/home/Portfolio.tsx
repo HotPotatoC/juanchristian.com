@@ -29,12 +29,12 @@ const PortfolioItem = ({ work }: { work: Work }) => {
     <Link href={work.path} passHref>
       <Tilt
         glareEnable={true}
-        glareMaxOpacity={0.45}
-        tiltMaxAngleX={15}
-        tiltMaxAngleY={15}
+        glareMaxOpacity={0.25}
+        tiltMaxAngleX={10}
+        tiltMaxAngleY={10}
         perspective={1000}
         scale={1.1}
-        transitionSpeed={2000}
+        transitionSpeed={1000}
         transitionEasing="cubic-bezier(0.19, 1.0, 0.22, 1.0)"
         className="w-full h-full hover:bg-[#fff] hover:bg-opacity-50 dark:hover:bg-white dark:hover:bg-opacity-5 p-6 rounded-xl md:rounded-3xl overflow-hidden"
       >
