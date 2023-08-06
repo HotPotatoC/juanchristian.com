@@ -74,7 +74,7 @@ const Footer = () => (
             <Link href="/#projects">projects</Link>
           </p>
           <p className="text-xl font-medium hover:text-primary duration-150">
-            <Link href="/#about">about</Link>
+            <Link href="/about">about</Link>
           </p>
           <p className="text-xl font-medium hover:text-primary duration-150">
             <Link href="mailto:juandotulung@gmail.com">get in touch</Link>
