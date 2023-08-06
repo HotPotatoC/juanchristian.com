@@ -12,6 +12,7 @@ module.exports = {
       display: ['GeneralSans-Semibold', 'sans-serif'],
       black: ['GeneralSans-Black', 'sans-serif'],
       nikea: ['NIKEA', 'GeneralSans-Semibold', 'sans-serif'],
+      serif: ['soria-font', 'serif'],
     },
     extend: {
       colors: {

@@ -1,6 +1,6 @@
-const expoEaseInOut = [0.19, 1.0, 0.22, 1.0]
+export const expoEaseInOut = [0.19, 1.0, 0.22, 1.0]
 
-export const createSlideUpTransition = (delay = 0.1) => ({
+export const createSlideUpTransition = ({ duration = 3, delay = 0.1 }) => ({
   initial: {
     opacity: 0,
     y: 50,
@@ -14,13 +14,13 @@ export const createSlideUpTransition = (delay = 0.1) => ({
     y: -50,
   },
   transition: {
-    duration: 2,
+    duration,
     ease: expoEaseInOut,
     delay,
   },
 })
 
-export const createFadeInTransition = (delay = 0.1) => ({
+export const createFadeInTransition = ({ duration = 3, delay = 0.1 }) => ({
   initial: {
     opacity: 0,
   },
@@ -31,7 +31,7 @@ export const createFadeInTransition = (delay = 0.1) => ({
     opacity: 0,
   },
   transition: {
-    duration: 2,
+    duration,
     ease: expoEaseInOut,
     delay,
   },
