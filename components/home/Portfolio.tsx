@@ -148,8 +148,8 @@ export const Portfolio = () => {
       id="portfolio"
       className="portfolio relative z-20 mt-12 tracking-tighter"
     >
-      <ContentWrapper extraClass="px-6 md:px-6 lg:px-48 py-6 md:py-24">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-32">
+      <ContentWrapper extraClass="px-6 md:px-6 xl:px-48 py-6 md:py-24">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-32">
           {works.map((work) => (
             <PortfolioItem key={work.path} work={work} />
           ))}

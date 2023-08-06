@@ -6,19 +6,19 @@ const Hero = () => {
   return (
     <>
       <section className="relative overflow-hidden">
-        <ContentWrapper extraClass="px-6 md:px-12 md:pt-24 lg:pt-36 pb-24">
+        <ContentWrapper extraClass="px-6 md:px-12 md:pt-16 lg:pt-24 xl:pt-36 pb-24">
           <section
             id="hero"
-            className="hero flex justify-center space-x-6 z-20 mt-32 tracking-tighter"
+            className="hero flex flex-wrap justify-center space-x-3 md:space-x-6 z-20 mt-32 tracking-tighter"
           >
             <motion.h1
-              className="relative font-display text-4xl md:text-7xl lg:text-9xl"
+              className="relative font-display text-6xl md:text-7xl lg:text-9xl"
               {...createSlideUpTransition({ delay: 0.2 })}
             >
               Juan
             </motion.h1>
             <motion.h1
-              className="relative font-display text-4xl md:text-7xl lg:text-9xl"
+              className="relative font-display text-6xl md:text-7xl lg:text-9xl"
               {...createSlideUpTransition({ delay: 0.6 })}
             >
               Christian

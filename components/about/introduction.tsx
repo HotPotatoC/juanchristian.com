@@ -52,7 +52,7 @@ export const Introduction = () => {
         </div>
       </ContentWrapper>
       <div className="bg-black">
-        <ContentWrapper extraClass="py-12 px-6 md:px-32 lg:px-64 md:pt-24 lg:pt-48">
+        <ContentWrapper extraClass="py-12 px-6 md:px-32 lg:px-64 md:pt-24 lg:pt-48 text-justify">
           <motion.p className="mt-12 mb-12 font-medium text-white text-lg md:text-xl lg:text-2xl tracking-wide">
             I was born in Jakarta, Indonesia in 2003, and my journey into the
             world of coding started at the age of 12 when I started exploring

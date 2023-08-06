@@ -1,7 +1,7 @@
 import ContentWrapper from '../../components/ui/content-wrapper'
 
 const Toolbelt = () => (
-  <div className="flex flex-wrap mb-12">
+  <div className="flex flex-wrap mb-12 text-black dark:text-white">
     <div className="w-full lg:w-1/3">
       <h2 className="font-display text-2xl md:text-4xl tracking-tight uppercase">
         Expertise
@@ -12,7 +12,7 @@ const Toolbelt = () => (
         GOLANG / JAVASCRIPT / TYPESCRIPT / PYTHON
       </p>
       <p className="font-medium text-2xl tracking-tight mb-4">
-        VUE.JS / REACT.JS / NEXT.JS / NODE.JS / DOCKER
+        REACT.JS / NEXT.JS / VUE.JS / NODE.JS / DOCKER
       </p>
       <p className="font-medium text-2xl tracking-tight mb-4">
         MYSQL / POSTGRESQL / MONGODB / REDIS
@@ -25,7 +25,7 @@ const Toolbelt = () => (
 )
 
 const Education = () => (
-  <div className="flex flex-wrap mb-12">
+  <div className="flex flex-wrap mb-12 text-black dark:text-white">
     <div className="w-full lg:w-1/3">
       <h2 className="font-display text-2xl md:text-4xl tracking-tight uppercase">
         Education
@@ -45,7 +45,7 @@ const Education = () => (
 
 const Skills = () => (
   <section id="skills" className="skills mt-24">
-    <ContentWrapper extraClass="px-6 md:px-2 lg:px-48 py-24">
+    <ContentWrapper extraClass="px-6 md:px-6 xl:px-48 py-6 md:py-24">
       <Toolbelt />
       <Education />
     </ContentWrapper>
