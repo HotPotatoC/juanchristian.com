@@ -96,38 +96,32 @@ export const Portfolio = () => {
       },
       {
         label: 'twitter clone — Fullstack / Go / ReactJS / VueJS',
-        path: '/portfolio/twitterclone',
+        path: 'https://github.com/twitter-remake',
         description: 'An attempt to recreate the top social network app',
         image: '/images/twitterclone.jpg',
       },
       {
         label: 'kvstore — Go / Data Structures / TCP',
-        path: '/portfolio/kvstore',
+        path: 'https://github.com/HotPotatoC/kvstore',
         description:
           'A redis protocol compatible key-value database written in Go',
         image: '/images/kvstore.gif',
       },
       {
         label: 'sture — Go / Data Structures / Generics',
-        path: '/portfolio/sture',
+        path: 'https://github.com/HotPotatoC/sture',
         description: 'A Go data structures library that supports generics',
         image: 'https://opengraph.githubassets.com/a/HotPotatoC/sture',
       },
       {
         label: 'snowflake — Go / Bit Manipulation',
-        path: '/portfolio/snowflake',
+        path: 'https://github.com/HotPotatoC/snowflake',
         description: "Twitter's snowflake ID format generator written in Go",
         image: 'https://opengraph.githubassets.com/a/HotPotatoC/snowflake',
       },
       {
-        label: 'covinfo — VueJS / TailwindCSS',
-        path: '/portfolio/covinfo',
-        description: 'Platform to view the novel COVID-19 demographics',
-        image: '/images/covinfomockup.jpg',
-      },
-      {
         label: '2D Raycasting — HTML5 Canvas / JS',
-        path: '/portfolio/2d-raycasting',
+        path: 'https://github.com/HotPotatoC/2D-RayCasting',
         description:
           'A simple 2D Raycasting engine made with HTML5 Canvas + JS',
         image: '/images/2d-raycast.png',
