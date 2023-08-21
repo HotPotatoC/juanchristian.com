@@ -27,6 +27,7 @@ const PortfolioItem = ({ work }: { work: Work }) => {
             alt={work.name}
             width={1000}
             height={500}
+            sizes="(max-width: 1400px) 100vw, 1400px"
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
               shimmer(1000, 1000)
