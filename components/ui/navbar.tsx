@@ -1,13 +1,14 @@
 'use client'
 
+import IconRightArrow from '@/components/icons/icon-right-arrow'
+import ContentWrapper from '@/components/ui/content-wrapper'
+import { useTransition } from '@/lib/animation'
+import cn from '@/lib/cn'
+
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useTransition } from '../../lib/animation'
-import cn from '../../lib/cn'
-import IconRightArrow from '../icons/icon-right-arrow'
-import ContentWrapper from './content-wrapper'
 
 const SwitchDarkMode = () => {
   const MoonIcon = () => (

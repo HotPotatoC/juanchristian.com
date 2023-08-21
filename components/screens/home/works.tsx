@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion'
+import SlideUp from '@/components/animation/slide-up'
+import ContentWrapper from '@/components/ui/content-wrapper'
+import { shimmer, toBase64 } from '@/lib/utils'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
 import Tilt from 'react-parallax-tilt'
-import ContentWrapper from '../../components/ui/content-wrapper'
-import { createSlideUpTransition } from '../../lib/animation'
-import { shimmer, toBase64 } from '../../lib/utils'
 
 type Work = {
   path: string
@@ -15,10 +15,6 @@ type Work = {
 }
 
 const PortfolioItem = ({ work }: { work: Work }) => {
-  const { initial, animate, exit, transition } = createSlideUpTransition({
-    delay: 0.2,
-  })
-
   return (
     <Link href={work.path} passHref>
       <Tilt
@@ -32,13 +28,7 @@ const PortfolioItem = ({ work }: { work: Work }) => {
         transitionEasing="cubic-bezier(0.19, 1.0, 0.22, 1.0)"
         className="w-full h-full hover:bg-white-50 hover:bg-opacity-60 dark:hover:bg-white-100 dark:hover:bg-opacity-5 p-6 rounded-xl md:rounded-3xl overflow-hidden"
       >
-        <motion.div
-          className="flex flex-col relative space-y-6"
-          initial={initial}
-          transition={transition}
-          whileInView={animate}
-          viewport={{ once: true, margin: '10px' }}
-        >
+        <SlideUp className="flex flex-col relative space-y-6">
           <Image
             src={work.image}
             alt={work.label}
@@ -58,13 +48,13 @@ const PortfolioItem = ({ work }: { work: Work }) => {
               {work.label}
             </span>
           </section>
-        </motion.div>
+        </SlideUp>
       </Tilt>
     </Link>
   )
 }
 
-export const Portfolio = () => {
+export const Works = () => {
   const works = useMemo(
     () => [
       {
@@ -131,10 +121,7 @@ export const Portfolio = () => {
   )
 
   return (
-    <section
-      id="portfolio"
-      className="portfolio relative z-20 mt-12 tracking-tighter"
-    >
+    <section className="relative z-20 mt-12 tracking-tighter">
       <ContentWrapper extraClass="px-6 md:px-6 xl:px-48 py-6 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-32">
           {works.map((work) => (
@@ -145,3 +132,5 @@ export const Portfolio = () => {
     </section>
   )
 }
+
+export default Works

@@ -1,9 +1,10 @@
 'use client'
+import SlideUp from '@/components/animation/slide-up'
+import ContentWrapper from '@/components/ui/content-wrapper'
+import useAsiaJakartaTime from '@/hooks/useTime'
+
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import useAsiaJakartaTime from '../../hooks/useTime'
-import SlideUp from '../animation/SlideUp'
-import ContentWrapper from './content-wrapper'
 
 const Socials = () => (
   <div className="flex space-x-4">

@@ -1,13 +1,13 @@
 'use client'
-import Hero from '../components/home/Hero'
-import { Portfolio } from '../components/home/Portfolio'
-import Skills from '../components/skills'
+import Intro from '@/components/screens/home/intro'
+import Works from '@/components/screens/home/works'
+import Skills from '@/components/ui/skills'
 
 export default function Page() {
   return (
     <main className="pt-28">
-      <Hero />
-      <Portfolio />
+      <Intro />
+      <Works />
       <Skills />
     </main>
   )

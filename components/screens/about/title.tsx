@@ -1,10 +1,10 @@
+import FadeIn from '@/components/animation/fade-in'
+import ContentWrapper from '@/components/ui/content-wrapper'
+import { useTransition } from '@/lib/animation'
+
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { useTransition } from '../../lib/animation'
-import { shimmer, toBase64 } from '../../lib/utils'
-import FadeIn from '../animation/FadeIn'
-import ContentWrapper from '../ui/content-wrapper'
 
 const AboutTitle = () => {
   const scrollTargetRef = useRef<HTMLDivElement>(null)
@@ -46,10 +46,6 @@ const AboutTitle = () => {
             alt={'Juan Christian profile picture'}
             width={1000}
             height={500}
-            placeholder="blur"
-            blurDataURL={`data:image/svg+xml;base64,${toBase64(
-              shimmer(1000, 1000)
-            )}`}
             className="w-[20vw] lg:w-[15vw] h-full grayscale brightness-50"
           />
         </motion.div>

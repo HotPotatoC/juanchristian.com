@@ -1,11 +1,12 @@
+import ThemeProvider from '@/components/theme-provider'
+import Footer from '@/components/ui/footer'
+import Navbar from '@/components/ui/navbar'
+import { createSEO } from '@/lib/seo'
+import '@/styles/global.css'
+
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import ThemeProvider from '../components/theme-provider'
-import Footer from '../components/ui/footer'
-import Navbar from '../components/ui/navbar'
-import { createSEO } from '../lib/seo'
-import '../styles/global.css'
 
 export const metadata: Metadata = createSEO({
   title: 'Juan Christian — Indonesian Developer',
@@ -13,7 +14,7 @@ export const metadata: Metadata = createSEO({
 })
 
 const DynamicCustomCursor = dynamic(
-  () => import('../components/ui/custom-cursor'),
+  () => import('@/components/ui/custom-cursor'),
   {
     ssr: true,
   }

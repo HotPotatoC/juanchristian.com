@@ -1,12 +1,13 @@
 'use client'
 
+import { useEventListener } from '@/hooks/useEventListener'
+import useMousePosition from '@/hooks/useMousePosition'
+import { expoEaseInOut, useTransition } from '@/lib/animation'
+import cn from '@/lib/cn'
+
 import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { useEventListener } from '../../hooks/useEventListener'
-import useMousePosition from '../../hooks/useMousePosition'
-import { expoEaseInOut, useTransition } from '../../lib/animation'
-import cn from '../../lib/cn'
 
 const CustomCursor = () => {
   const pathname = usePathname()

@@ -1,8 +1,9 @@
+import SlideUp from '@/components/animation/slide-up'
+import ContentWrapper from '@/components/ui/content-wrapper'
+import { useTransition } from '@/lib/animation'
+import cn from '@/lib/cn'
+
 import { motion } from 'framer-motion'
-import { useTransition } from '../lib/animation'
-import cn from '../lib/cn'
-import SlideUp from './animation/SlideUp'
-import ContentWrapper from './ui/content-wrapper'
 
 const Toolbelt = () => (
   <div className="flex flex-wrap my-32 text-black dark:text-white-100">

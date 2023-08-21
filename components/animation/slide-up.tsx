@@ -1,16 +1,16 @@
+import { createSlideUpTransition } from '@/lib/animation'
 import { HTMLMotionProps, motion } from 'framer-motion'
-import { createFadeInTransition } from '../../lib/animation'
 
-type FadeInProps = {
+type SlideUpProps = {
   duration?: number
   delay?: number
   children: React.ReactNode
 } & HTMLMotionProps<'div'>
 
-const FadeIn = (props: FadeInProps) => {
-  const { initial, animate, exit, transition } = createFadeInTransition({
-    delay: props.delay,
-    duration: props.duration,
+const SlideUp = ({ duration, delay = 0, children, ...props }: SlideUpProps) => {
+  const { initial, animate, exit, transition } = createSlideUpTransition({
+    delay,
+    duration,
   })
 
   return (
@@ -22,9 +22,9 @@ const FadeIn = (props: FadeInProps) => {
       viewport={{ once: true, margin: '10px' }}
       {...props}
     >
-      {props.children}
+      {children}
     </motion.div>
   )
 }
 
-export default FadeIn
+export default SlideUp
