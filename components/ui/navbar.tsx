@@ -10,11 +10,15 @@ import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const SwitchDarkMode = () => {
+type SwitchDarkModeProps = {
+  overlayOpen: boolean
+}
+
+const SwitchDarkMode = ({ overlayOpen }: SwitchDarkModeProps) => {
   const MoonIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-moon-stars"
+      className="w-8 h-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       width="32"
       height="32"
       viewBox="0 0 24 24"
@@ -34,7 +38,7 @@ const SwitchDarkMode = () => {
   const SunIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-sun-high"
+      className="w-8 h-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       width="32"
       height="32"
       viewBox="0 0 24 24"
@@ -59,18 +63,43 @@ const SwitchDarkMode = () => {
 
   const { theme, setTheme } = useTheme()
 
-  const transition = useTransition({ duration: 0.2 })
+  const transition = useTransition({ duration: 1 })
 
   return (
-    <motion.button
-      className="z-50 focus:outline-none"
+    <button
+      className={cn([
+        !overlayOpen && 'backdrop-blur',
+        'relative z-50 w-14 h-14 bg-white-100/75 dark:bg-black/75 border !border-opacity-25 border-black dark:border-white-100 rounded-full duration-100 focus:outline-none overflow-hidden',
+      ])}
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      whileHover={{ scale: 1.25, rotate: 360 }}
-      whileTap={{ scale: 0.8, rotate: 720 }}
-      transition={transition}
     >
-      {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
-    </motion.button>
+      <AnimatePresence>
+        {theme === 'dark' && (
+          <motion.div
+            key="dark"
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={transition}
+            className="relative flex items-center bg-blue-500 origin-[100%_150%]"
+          >
+            <MoonIcon />
+          </motion.div>
+        )}
+        {theme === 'light' && (
+          <motion.div
+            key="light"
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={transition}
+            className="relative flex items-center bg-blue-500 origin-[100%_150%]"
+          >
+            <SunIcon />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </button>
   )
 }
 
@@ -148,7 +177,7 @@ const Navbar = () => {
             >
               {isOverlayOpen ? 'CLOSE' : 'MENU'}
             </button>
-            <SwitchDarkMode />
+            <SwitchDarkMode overlayOpen={isOverlayOpen} />
           </div>
         </ContentWrapper>
       </nav>
