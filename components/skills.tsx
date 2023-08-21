@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import { useTransition } from '../../lib/animation'
-import cn from '../../lib/cn'
-import SlideUp from '../animation/SlideUp'
-import ContentWrapper from '../ui/content-wrapper'
+import { useTransition } from '../lib/animation'
+import cn from '../lib/cn'
+import SlideUp from './animation/SlideUp'
+import ContentWrapper from './ui/content-wrapper'
 
 const Toolbelt = () => (
   <div className="flex flex-wrap my-32 text-black dark:text-white-100">
@@ -98,7 +98,7 @@ const EducationTable = () => {
   )
 }
 
-const AboutSkills = () => {
+const Skills = () => {
   const transition = useTransition()
   return (
     <section id="skills" className="skills mt-24">
@@ -131,4 +131,4 @@ const AboutSkills = () => {
   )
 }
 
-export default AboutSkills
+export default Skills

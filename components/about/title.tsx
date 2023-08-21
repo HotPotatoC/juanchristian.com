@@ -11,7 +11,7 @@ const AboutTitle = () => {
     <ContentWrapper extraClass="pt-12 px-6 md:px-12 md:pt-12 lg:pt-24">
       <FadeIn className="relative">
         <motion.div
-          className="absolute from-bg-black to-white-400 rounded-xl md:rounded-3xl overflow-hidden"
+          className="select-none absolute from-bg-black to-white-400 rounded-xl md:rounded-3xl overflow-hidden"
           initial={{ opacity: 0, y: 100, x: 350, rotate: -8 }}
           animate={{ opacity: 1, y: -2 }}
           transition={profileTransition}
