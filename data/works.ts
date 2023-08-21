@@ -113,7 +113,7 @@ const works: Work[] = [
     tools: ['Go', 'Redis Protocol', 'TCP'],
     path: 'https://github.com/HotPotatoC/kvstore',
     description: 'A redis protocol compatible key-value database written in Go',
-    image: '/images/kvstore.gif',
+    image: 'https://opengraph.githubassets.com/a/HotPotatoC/kvstore',
     year: 2022,
     color: 'yellow-pastel',
     bgColor: 'bg-yellow-pastel',
