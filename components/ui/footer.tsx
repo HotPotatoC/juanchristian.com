@@ -1,5 +1,7 @@
 'use client'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
+import useAsiaJakartaTime from '../../hooks/useTime'
 import SlideUp from '../animation/SlideUp'
 import ContentWrapper from './content-wrapper'
 
@@ -74,6 +76,8 @@ const Socials = () => (
 )
 
 const Footer = () => {
+  const asiaJakartaTime = useAsiaJakartaTime()
+
   return (
     <footer className="w-full py-6 relative overflow-hidden">
       <ContentWrapper extraClass="px-6 md:px-12 pt-12">
@@ -83,12 +87,36 @@ const Footer = () => {
               <Link href="mailto:juandotulung@gmail.com">GET IN TOUCH</Link>
             </h1>
           </SlideUp>
-          <SlideUp delay={0.2}>
-            <h1 className="hover:text-primary font-semibold text-lg md:text-3xl duration-150">
+          <SlideUp
+            delay={0.2}
+            className="flex flex-col md:flex-row items-center md:space-x-4"
+          >
+            <h1 className="hover:text-primary font-semibold text-lg md:text-xl duration-150">
               <Link href="mailto:juandotulung@gmail.com">
                 juandotulung@gmail.com
               </Link>
             </h1>
+            <div className="w-4 h-4 relative hidden md:block">
+              <motion.div
+                animate={{
+                  opacity: [0, 1, 0],
+                  scale: [0, 1, 2.5],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  repeatDelay: 0.5,
+                  times: [0, 0.5, 1],
+                  duration: 1,
+                  ease: 'linear',
+                }}
+                className="absolute left-0 top-0 w-4 h-4 rounded-full bg-white-100"
+              />
+              <div className="absolute left-0 top-0 w-4 h-4 rounded-full bg-white-100" />
+            </div>
+            <span className="font-semibold text-lg md:text-xl">
+              Jakarta, Indonesia / {asiaJakartaTime}
+            </span>
           </SlideUp>
           <div className="flex flex-col md:flex-row justify-between items-baseline mt-8 pt-6">
             <div className="mb-4 md:mb-0 grid grid-cols-2 md:grid-cols-4 gap-6">
