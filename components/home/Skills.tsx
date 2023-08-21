@@ -102,7 +102,7 @@ const Skills = () => {
   const transition = useTransition()
   return (
     <section id="skills" className="skills mt-24">
-      <ContentWrapper extraClass="px-6 md:px-6 xl:px-48 py-6 md:py-24">
+      <ContentWrapper extraClass="px-6 md:px-12 pt-12">
         <motion.div
           className="border-t border-opacity-50 border-black dark:border-white-100"
           initial={{ width: 0 }}

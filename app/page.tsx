@@ -5,10 +5,10 @@ import Skills from '../components/home/Skills'
 
 export default function Page() {
   return (
-    <>
+    <main className="pt-28">
       <Hero />
       <Portfolio />
       <Skills />
-    </>
+    </main>
   )
 }

@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useTransition } from '../../lib/animation'
+import cn from '../../lib/cn'
 import IconRightArrow from '../icons/icon-right-arrow'
 import ContentWrapper from './content-wrapper'
 
@@ -112,7 +113,7 @@ const NavbarOverlay = ({ close }: NavbarOverlayProps) => {
         duration: 1,
         ease: [0.19, 1.0, 0.22, 1.0],
       }}
-      className="fixed top-0 left-0 overflow-hidden z-[49] w-screen bg-white-100 dark:bg-black"
+      className="fixed top-0 left-0 overflow-hidden z-[49] w-screen backdrop-blur-lg bg-white-100/75 dark:bg-black/75"
     >
       <ContentWrapper extraClass="px-6 md:px-12 pt-64">
         <div className="flex flex-col space-y-12">
@@ -129,17 +130,19 @@ const Navbar = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
 
   const closeOverlay = () => setIsOverlayOpen(false)
-
   return (
     <>
       <AnimatePresence>
         {isOverlayOpen && <NavbarOverlay close={closeOverlay} />}
       </AnimatePresence>
-      <nav className="w-full py-2">
+      <nav className="fixed z-50 w-full py-2">
         <ContentWrapper extraClass="px-6 md:px-12 pt-12">
           <div className="flex justify-between items-center">
             <button
-              className="z-50 px-6 py-3 md:px-12 md:py-4 border !border-opacity-25 border-black dark:border-white-100 rounded-full font-display text-2xl md:text-4xl hover:bg-black hover:text-white-100 dark:hover:bg-white-100 dark:hover:text-black duration-100 focus:outline-none"
+              className={cn([
+                !isOverlayOpen && 'backdrop-blur',
+                'z-50 px-6 py-3 md:px-12 md:py-4 bg-white-100/75 dark:bg-black/75 border !border-opacity-25 border-black dark:border-white-100 rounded-full font-display text-2xl md:text-4xl hover:bg-black hover:text-white-100 dark:hover:bg-white-100 dark:hover:text-black duration-100 focus:outline-none',
+              ])}
               onClick={() => setIsOverlayOpen(!isOverlayOpen)}
             >
               {isOverlayOpen ? 'CLOSE' : 'MENU'}
