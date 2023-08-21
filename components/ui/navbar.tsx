@@ -119,8 +119,8 @@ const NavbarOverlay = ({ close }: NavbarOverlayProps) => {
       <ContentWrapper extraClass="px-6 md:px-12 pt-64">
         <div className="flex flex-col space-y-12">
           <NavLink to="/" label="HOME" onClick={close} />
+          <NavLink to="/works" label="WORKS" onClick={close} />
           <NavLink to="/about" label="ABOUT" onClick={close} />
-          <NavLink to="/#portfolio" label="PORTFOLIO" onClick={close} />
         </div>
       </ContentWrapper>
     </motion.nav>

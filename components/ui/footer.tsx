@@ -84,7 +84,7 @@ const Footer = () => {
       <ContentWrapper extraClass="px-6 md:px-12 pt-12">
         <div className="bg-white-200 dark:bg-white-100 bg-opacity-50 dark:bg-opacity-5 rounded-3xl p-5 md:p-12 overflow-hidden">
           <SlideUp>
-            <h1 className="hover:text-primary font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl duration-150">
+            <h1 className="hover:text-primary-700 font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl duration-150">
               <Link href="mailto:juandotulung@gmail.com">GET IN TOUCH</Link>
             </h1>
           </SlideUp>
@@ -92,7 +92,7 @@ const Footer = () => {
             delay={0.2}
             className="flex flex-col md:flex-row items-center md:space-x-4"
           >
-            <h1 className="hover:text-primary font-semibold text-lg md:text-xl duration-150">
+            <h1 className="hover:text-primary-700 font-semibold text-lg md:text-xl duration-150">
               <Link href="mailto:juandotulung@gmail.com">
                 juandotulung@gmail.com
               </Link>
@@ -122,22 +122,22 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-baseline mt-8 pt-6">
             <div className="mb-4 md:mb-0 grid grid-cols-2 md:grid-cols-4 gap-6">
               <SlideUp delay={0.3}>
-                <p className="text-xl font-medium hover:text-primary duration-150">
+                <p className="text-xl font-medium hover:text-primary-700 duration-150">
                   <Link href="/#projects">projects</Link>
                 </p>
               </SlideUp>
               <SlideUp delay={0.4}>
-                <p className="text-xl font-medium hover:text-primary duration-150">
+                <p className="text-xl font-medium hover:text-primary-700 duration-150">
                   <Link href="/about">about</Link>
                 </p>
               </SlideUp>
               <SlideUp delay={0.5}>
-                <p className="text-xl font-medium hover:text-primary duration-150">
+                <p className="text-xl font-medium hover:text-primary-700 duration-150">
                   <Link href="mailto:juandotulung@gmail.com">get in touch</Link>
                 </p>
               </SlideUp>
               <SlideUp delay={0.6}>
-                <p className="text-xl font-medium hover:text-primary duration-150">
+                <p className="text-xl font-medium hover:text-primary-700 duration-150">
                   <Link href="https://github.com/HotPotatoC/juanchristian.com">
                     source code
                   </Link>

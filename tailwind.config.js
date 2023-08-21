@@ -3,7 +3,7 @@ module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './modules/**/*.{js,ts,jsx,tsx}',
+    './data/works.ts',
   ],
   theme: {
     fontFamily: {
@@ -16,7 +16,19 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#0043FF',
+        primary: {
+          50: '#e8f7ff',
+          100: '#d5efff',
+          200: '#b3e0ff',
+          300: '#85c8ff',
+          400: '#56a2ff',
+          500: '#2f7bff',
+          600: '#0c4eff',
+          700: '#0043ff',
+          800: '#063dcd',
+          900: '#103b9f',
+          950: '#0a215c',
+        },
         white: {
           50: '#fcf7f4',
           100: '#f8e9e2',
@@ -25,6 +37,13 @@ module.exports = {
           400: '#e1a488',
         },
         black: '#151519',
+        'white-pastel': '#F9F5F6',
+        'pink-pastel': '#FFD6DF',
+        'yellow-pastel': '#FCE6D9',
+        'cyan-pastel': '#DDF8F9',
+        'green-pastel': '#A9ECA2',
+        'red-pastel': '#F9B4B4',
+        'orange-pastel': '#FEBE8C',
       },
     },
   },
