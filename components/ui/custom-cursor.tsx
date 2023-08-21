@@ -113,6 +113,7 @@ const CustomCursor = () => {
                 repeatType: 'loop',
                 duration: 1.25,
                 ease: expoEaseInOut,
+                delay: 0.25,
               }}
             >
               <svg
