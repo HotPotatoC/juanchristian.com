@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 type MetadataOptions = {
   title: string
   description: string
-}
+} & Partial<Metadata>
 
 export const createSEO = ({
   title,

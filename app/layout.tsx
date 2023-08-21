@@ -26,6 +26,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link
+        rel="icon"
+        href="/favicon-16x16.png"
+        type="image/png"
+        sizes="16x16"
+      />
+      <link
+        rel="icon"
+        href="/favicon-32x32.png"
+        type="image/png"
+        sizes="32x32"
+      />
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+      />
       <body className="bg-white-100 dark:bg-black text-black dark:text-white-100">
         <ThemeProvider>
           <DynamicCustomCursor />
