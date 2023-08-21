@@ -1,11 +1,14 @@
 'use client'
 
-import { Introduction } from '../../components/about/introduction'
+import AboutSkills from '../../components/about/skills'
+import AboutTitle from '../../components/about/title'
 
 export default function Page() {
   return (
     <main className="pt-28">
-      <Introduction />
+      <AboutTitle />
+      <AboutSkills />
+      {/* <Introduction /> */}
     </main>
   )
 }
