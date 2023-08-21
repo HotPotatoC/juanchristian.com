@@ -63,7 +63,7 @@ const SwitchDarkMode = ({ overlayOpen }: SwitchDarkModeProps) => {
 
   const { theme, setTheme } = useTheme()
 
-  const transition = useTransition({ duration: 1 })
+  const transition = useTransition({ duration: 0.25 })
 
   return (
     <button
@@ -73,13 +73,13 @@ const SwitchDarkMode = ({ overlayOpen }: SwitchDarkModeProps) => {
       ])}
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
     >
-      <AnimatePresence>
+      <AnimatePresence mode="wait" initial={false}>
         {theme === 'dark' && (
           <motion.div
             key="dark"
-            initial={{ rotate: -90, opacity: 0 }}
+            initial={{ rotate: -45, opacity: 0 }}
             animate={{ rotate: 0, opacity: 1 }}
-            exit={{ rotate: 90, opacity: 0 }}
+            exit={{ rotate: 45, opacity: 0 }}
             transition={transition}
             className="relative flex items-center bg-blue-500 origin-[100%_150%]"
           >
@@ -89,9 +89,9 @@ const SwitchDarkMode = ({ overlayOpen }: SwitchDarkModeProps) => {
         {theme === 'light' && (
           <motion.div
             key="light"
-            initial={{ rotate: -90, opacity: 0 }}
+            initial={{ rotate: -45, opacity: 0 }}
             animate={{ rotate: 0, opacity: 1 }}
-            exit={{ rotate: 90, opacity: 0 }}
+            exit={{ rotate: 45, opacity: 0 }}
             transition={transition}
             className="relative flex items-center bg-blue-500 origin-[100%_150%]"
           >
