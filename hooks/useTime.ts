@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react'
 
-export function useAsiaJakartaTime() {
-  const dateOptions: Intl.DateTimeFormatOptions = {
-    timeZone: 'Asia/Jakarta',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-  }
+const dateOptions: Intl.DateTimeFormatOptions = {
+  timeZone: 'Asia/Jakarta',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  hourCycle: 'h23',
+}
 
+export function useAsiaJakartaTime() {
   const [time, setTime] = useState(() =>
-    new Date().toLocaleString([], dateOptions)
+    new Intl.DateTimeFormat([], dateOptions).format(new Date())
   )
+
   useEffect(() => {
     const id = setInterval(() => {
-      setTime(new Date().toLocaleString([], dateOptions))
+      setTime(new Intl.DateTimeFormat([], dateOptions).format(new Date()))
     }, 1000)
     return () => clearInterval(id)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return time
