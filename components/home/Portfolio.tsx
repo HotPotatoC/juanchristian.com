@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
-import { useInView } from 'react-intersection-observer'
 import Tilt from 'react-parallax-tilt'
 import ContentWrapper from '../../components/ui/content-wrapper'
 import { createSlideUpTransition } from '../../lib/animation'
@@ -16,11 +15,6 @@ type Work = {
 }
 
 const PortfolioItem = ({ work }: { work: Work }) => {
-  const { ref, inView, entry } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
-
   const { initial, animate, exit, transition } = createSlideUpTransition({
     delay: 0.2,
   })
@@ -40,11 +34,10 @@ const PortfolioItem = ({ work }: { work: Work }) => {
       >
         <motion.div
           className="flex flex-col relative space-y-6"
-          ref={ref}
           initial={initial}
-          animate={inView && animate}
-          exit={exit}
           transition={transition}
+          whileInView={animate}
+          viewport={{ once: true, margin: '10px' }}
         >
           <Image
             src={work.image}
@@ -61,7 +54,7 @@ const PortfolioItem = ({ work }: { work: Work }) => {
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-6">
               {work.description}
             </h2>
-            <span className="underline decoration-1 decoration-black text-2xl dark:decoration-white opacity-50 hover:opacity-100 hover:text-primary hover:decoration-primary hover:dark:decoration-primary capitalize duration-150">
+            <span className="text-xl dark:decoration-white capitalize">
               {work.label}
             </span>
           </section>
@@ -75,65 +68,65 @@ export const Portfolio = () => {
   const works = useMemo(
     () => [
       {
-        label: 'piggybank (Technoscape Hackathon)',
+        label: 'Hackathon — Go / NextJS / TailwindCSS',
         path: '/portfolio/piggybank',
         description:
           'Piggybank is a kid bank that can help teach saving and financial literacy from an early age to children',
         image: '/images/piggybank.png',
       },
       {
-        label: 'Lexo (Microsoft Imagine Cup)',
+        label: 'Imagine Cup 2021 — Azure / Go / React Native',
         path: '/portfolio/lexo',
         description:
           'Bionic reading camera for dyslexic people using computer vision',
         image: '/images/lexo.png',
       },
       {
-        label: 'stashable (GEMASTIK competition)',
+        label: 'GEMASTIK competition — Go / React Native',
         path: '/portfolio/stashable',
         description:
           'Platform for users to reserve a place to store their goods in the warehouse',
         image: '/images/stashable.png',
       },
       {
-        label: 'mindzzle (Ceased Operations)',
+        label: 'mindzzle — Frontend Internship / VueJS',
         path: '/portfolio/mindzzle',
         description: 'Developing integrated Human Capital Management Platform',
         image: '/images/mindzzlemockup.jpg',
       },
       {
-        label: 'twitter clone',
+        label: 'twitter clone — Fullstack / Go / ReactJS / VueJS',
         path: '/portfolio/twitterclone',
         description: 'An attempt to recreate the top social network app',
         image: '/images/twitterclone.jpg',
       },
       {
-        label: 'kvstore',
+        label: 'kvstore — Go / Data Structures / TCP',
         path: '/portfolio/kvstore',
         description:
           'A redis protocol compatible key-value database written in Go',
         image: '/images/kvstore.gif',
       },
       {
-        label: 'sture',
+        label: 'sture — Go / Data Structures / Generics',
         path: '/portfolio/sture',
         description: 'A Go data structures library that supports generics',
         image: 'https://opengraph.githubassets.com/a/HotPotatoC/sture',
       },
       {
-        label: 'snowflake',
+        label: 'snowflake — Go / Bit Manipulation',
         path: '/portfolio/snowflake',
         description: "Twitter's snowflake ID format generator written in Go",
         image: 'https://opengraph.githubassets.com/a/HotPotatoC/snowflake',
       },
       {
-        label: 'covinfo',
+        label: 'covinfo — VueJS / TailwindCSS',
         path: '/portfolio/covinfo',
         description: 'Platform to view the novel COVID-19 demographics',
         image: '/images/covinfomockup.jpg',
       },
       {
-        label: '2D Raycasting',
+        label: '2D Raycasting — HTML5 Canvas / JS',
         path: '/portfolio/2d-raycasting',
         description:
           'A simple 2D Raycasting engine made with HTML5 Canvas + JS',
