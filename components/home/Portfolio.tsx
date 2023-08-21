@@ -30,7 +30,7 @@ const PortfolioItem = ({ work }: { work: Work }) => {
         scale={1.1}
         transitionSpeed={1000}
         transitionEasing="cubic-bezier(0.19, 1.0, 0.22, 1.0)"
-        className="w-full h-full hover:bg-[#fff] hover:bg-opacity-50 dark:hover:bg-white dark:hover:bg-opacity-5 p-6 rounded-xl md:rounded-3xl overflow-hidden"
+        className="w-full h-full hover:bg-white-50 hover:bg-opacity-60 dark:hover:bg-white-100 dark:hover:bg-opacity-5 p-6 rounded-xl md:rounded-3xl overflow-hidden"
       >
         <motion.div
           className="flex flex-col relative space-y-6"
@@ -54,7 +54,7 @@ const PortfolioItem = ({ work }: { work: Work }) => {
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-6">
               {work.description}
             </h2>
-            <span className="text-xl dark:decoration-white capitalize">
+            <span className="text-xl dark:decoration-white-100 capitalize">
               {work.label}
             </span>
           </section>
@@ -68,13 +68,6 @@ export const Portfolio = () => {
   const works = useMemo(
     () => [
       {
-        label: 'Hackathon — Go / NextJS / TailwindCSS',
-        path: '/portfolio/piggybank',
-        description:
-          'Piggybank is a kid bank that can help teach saving and financial literacy from an early age to children',
-        image: '/images/piggybank.png',
-      },
-      {
         label: 'Imagine Cup 2021 — Azure / Go / React Native',
         path: '/portfolio/lexo',
         description:
@@ -87,6 +80,13 @@ export const Portfolio = () => {
         description:
           'Platform for users to reserve a place to store their goods in the warehouse',
         image: '/images/stashable.png',
+      },
+      {
+        label: 'Hackathon — Go / NextJS / TailwindCSS',
+        path: '/portfolio/piggybank',
+        description:
+          'Piggybank is a kid bank that can help teach saving and financial literacy from an early age to children',
+        image: '/images/piggybank.png',
       },
       {
         label: 'mindzzle — Frontend Internship / VueJS',

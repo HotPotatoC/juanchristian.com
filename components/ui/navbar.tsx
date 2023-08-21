@@ -112,7 +112,7 @@ const NavbarOverlay = ({ close }: NavbarOverlayProps) => {
         duration: 1,
         ease: [0.19, 1.0, 0.22, 1.0],
       }}
-      className="fixed top-0 left-0 overflow-hidden z-[49] w-screen bg-white dark:bg-black"
+      className="fixed top-0 left-0 overflow-hidden z-[49] w-screen bg-white-100 dark:bg-black"
     >
       <ContentWrapper extraClass="px-6 md:px-12 pt-64">
         <div className="flex flex-col space-y-12">
@@ -139,7 +139,7 @@ const Navbar = () => {
         <ContentWrapper extraClass="px-6 md:px-12 pt-12">
           <div className="flex justify-between items-center">
             <button
-              className="z-50 px-6 py-3 md:px-12 md:py-4 border !border-opacity-25 border-black dark:border-white rounded-full font-display text-2xl md:text-4xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black duration-100 focus:outline-none"
+              className="z-50 px-6 py-3 md:px-12 md:py-4 border !border-opacity-25 border-black dark:border-white-100 rounded-full font-display text-2xl md:text-4xl hover:bg-black hover:text-white-100 dark:hover:bg-white-100 dark:hover:text-black duration-100 focus:outline-none"
               onClick={() => setIsOverlayOpen(!isOverlayOpen)}
             >
               {isOverlayOpen ? 'CLOSE' : 'MENU'}

@@ -72,7 +72,7 @@ const CustomCursor = () => {
   return (
     <div
       className={cn(
-        'opacity-0 pointer-events-none fixed z-[999] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-white rounded-full mix-blend-difference [transition:opacity_300ms,transform_400ms] ease-[cubic-bezier(0.19,1,0.22,1)]',
+        'opacity-0 pointer-events-none fixed z-[999] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-white-100 rounded-full mix-blend-difference [transition:opacity_300ms,transform_400ms] ease-[cubic-bezier(0.19,1,0.22,1)]',
         isActive && ['opacity-1', isActiveOnLink ? 'scale-[7]' : 'scale-[5]'],
         isClicked && 'scale-[3]'
       )}

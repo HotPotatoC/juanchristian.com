@@ -53,7 +53,7 @@ export const Introduction = () => {
       </ContentWrapper>
       <div className="bg-black">
         <ContentWrapper extraClass="py-12 px-6 md:px-32 lg:px-64 md:pt-24 lg:pt-48 text-justify">
-          <motion.p className="mt-12 mb-12 font-medium text-white text-lg md:text-xl lg:text-2xl tracking-wide">
+          <motion.p className="mt-12 mb-12 font-medium text-white-100 text-lg md:text-xl lg:text-2xl tracking-wide">
             I was born in Jakarta, Indonesia in 2003, and my journey into the
             world of coding started at the age of 12 when I started exploring
             web development with HTML, CSS, and JavaScript. At high school, I
@@ -61,14 +61,14 @@ export const Introduction = () => {
             engineering, complemented by hands-on experiences through
             interactions with peers and various extracurricular activities.
           </motion.p>
-          <motion.p className="mb-12 font-medium text-white text-lg md:text-xl lg:text-2xl tracking-wide">
+          <motion.p className="mb-12 font-medium text-white-100 text-lg md:text-xl lg:text-2xl tracking-wide">
             During high school, I did a 3-month internship, a requirement for
             high school graduation, where I honed my skills in frontend
             development using Vue.js. But I did not stop there. I continued to
             learn and explore the world of web development, and I started to
             enjoy more on the backend side of things.
           </motion.p>
-          <motion.p className="mb-64 font-medium text-white text-lg md:text-xl lg:text-2xl tracking-wide">
+          <motion.p className="mb-64 font-medium text-white-100 text-lg md:text-xl lg:text-2xl tracking-wide">
             Participating in coding competitions further refined my abilities,
             and I subsequently pursued a Computer Science degree at BINUS
             University. This academic journey was punctuated by ongoing
@@ -85,7 +85,7 @@ export const Introduction = () => {
 }
 
 const Toolbelt = () => (
-  <div className="flex flex-wrap mb-12 text-white">
+  <div className="flex flex-wrap mb-12 text-white-100">
     <div className="w-full lg:w-1/3">
       <h2 className="font-display text-2xl md:text-4xl tracking-tight uppercase">
         Expertise
@@ -109,7 +109,7 @@ const Toolbelt = () => (
 )
 
 const Education = () => (
-  <div className="flex flex-wrap mb-12 text-white">
+  <div className="flex flex-wrap mb-12 text-white-100">
     <div className="w-full lg:w-1/3">
       <h2 className="font-display text-2xl md:text-4xl tracking-tight uppercase">
         Education

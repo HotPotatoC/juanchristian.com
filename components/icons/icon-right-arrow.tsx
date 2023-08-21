@@ -10,7 +10,7 @@ const IconRightArrow = (props: SVGProps<SVGSVGElement>) => (
   >
     <path
       d="m130 12-4.23 4.23L142.51 33H0v6h142.51l-16.74 16.77L130 60l24-24-24-24Z"
-      className="fill-black dark:fill-white"
+      className="fill-black dark:fill-white-100"
     />
   </svg>
 )
