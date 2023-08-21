@@ -16,13 +16,13 @@ const AboutTitle = () => {
   const profileTransition = useTransition({ delay: 1 })
   const profileTransformRotate = useTransform(
     scrollYProgress,
-    [0.25, 1],
-    ['0deg', '20deg']
+    [0.15, 1],
+    ['0deg', '-20deg']
   )
   const profileTransformScale = useTransform(
     scrollYProgress,
-    [0.25, 1],
-    [1, 0.5]
+    [0.15, 0.6, 1],
+    [1, 0.5, 0.15]
   )
 
   return (
@@ -32,7 +32,7 @@ const AboutTitle = () => {
     >
       <FadeIn className="relative">
         <motion.div
-          className="select-none absolute left-64 from-bg-black to-white-400 rounded-xl md:rounded-3xl overflow-hidden"
+          className="select-none absolute left-64 from-bg-black to-white-400 rounded-xl md:rounded-3xl overflow-hidden origin-bottom-right"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: -2 }}
           transition={profileTransition}
