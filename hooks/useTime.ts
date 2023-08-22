@@ -10,12 +10,12 @@ const dateOptions: Intl.DateTimeFormatOptions = {
 
 export function useAsiaJakartaTime() {
   const [time, setTime] = useState(() =>
-    new Intl.DateTimeFormat([], dateOptions).format(new Date())
+    new Date().toLocaleTimeString([], dateOptions)
   )
 
   useEffect(() => {
     const id = setInterval(() => {
-      setTime(new Intl.DateTimeFormat([], dateOptions).format(new Date()))
+      setTime(new Date().toLocaleTimeString([], dateOptions))
     }, 1000)
     return () => clearInterval(id)
   }, [])
