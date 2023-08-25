@@ -123,7 +123,7 @@ const Footer = () => {
             <div className="mb-4 md:mb-0 grid grid-cols-2 md:grid-cols-4 gap-6">
               <SlideUp delay={0.3}>
                 <p className="text-xl font-medium hover:text-primary-700 duration-150">
-                  <Link href="/#projects">projects</Link>
+                  <Link href="/works">works</Link>
                 </p>
               </SlideUp>
               <SlideUp delay={0.4}>
