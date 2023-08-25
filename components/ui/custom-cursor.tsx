@@ -34,15 +34,18 @@ const CustomCursor = () => {
     // unless the link has data-hide-arrow attribute
     linkEls.forEach((el) => {
       el.addEventListener('mouseenter', () => {
-        // if data-hide-cursor is true, hide the cursor
-        if (el instanceof HTMLElement && el.dataset.hideCursor === 'true') {
+        // if data-cursor-hide is true, hide the cursor
+        if (el instanceof HTMLElement && el.dataset.cursorHide === 'true') {
           setIsActive(false)
         } else {
           setIsActive(true)
         }
 
-        // if data-hide-arrow is true, hide the arrow
-        if (el instanceof HTMLElement && el.dataset.hideArrow === 'true') {
+        // if data-cursor-hide-arrow is true, hide the arrow
+        if (
+          el instanceof HTMLElement &&
+          el.dataset.cursorHideArrow === 'true'
+        ) {
           setShowArrow(false)
         } else {
           setShowArrow(true)

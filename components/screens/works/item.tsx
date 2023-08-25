@@ -29,7 +29,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
   const workItemTransformScale = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    [1, 1.05, 1]
+    [0.95, 1, 0.95]
   )
 
   const [x, y] = useMousePosition()
@@ -72,7 +72,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
 
   return (
     <>
-      <Link href={work.path} passHref data-hide-arrow="true">
+      <Link href={work.path} passHref data-cursor-hide-arrow="true">
         <motion.div
           ref={scrollTargetRef}
           className={cn([
