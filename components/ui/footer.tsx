@@ -12,6 +12,8 @@ const Socials = () => (
       <a
         href="https://github.com/HotPotatoC"
         className="text-xl opacity-60 hover:opacity-100 duration-150"
+        rel="noopener noreferrer"
+        data-cursor-hide-arrow="true"
       >
         <svg
           className="fill-black dark:fill-white-100"
@@ -28,6 +30,8 @@ const Socials = () => (
       <a
         href="https://instagram.com/juanchristian.dev"
         className="text-xl opacity-60 hover:opacity-100 duration-150"
+        rel="noopener noreferrer"
+        data-cursor-hide-arrow="true"
       >
         <svg
           className="fill-black dark:fill-white-100"
@@ -44,6 +48,8 @@ const Socials = () => (
       <a
         href="https://www.linkedin.com/in/juanwmv/"
         className="text-xl opacity-60 hover:opacity-100 duration-150"
+        rel="noopener noreferrer"
+        data-cursor-hide-arrow="true"
       >
         <svg
           className="fill-black dark:fill-white-100"
@@ -123,22 +129,34 @@ const Footer = () => {
             <div className="mb-4 md:mb-0 grid grid-cols-2 md:grid-cols-4 gap-6">
               <SlideUp delay={0.3}>
                 <p className="text-xl font-medium hover:text-primary-700 duration-150">
-                  <Link href="/works">works</Link>
+                  <Link href="/works" data-cursor-hide-arrow="true">
+                    works
+                  </Link>
                 </p>
               </SlideUp>
               <SlideUp delay={0.4}>
                 <p className="text-xl font-medium hover:text-primary-700 duration-150">
-                  <Link href="/about">about</Link>
+                  <Link href="/about" data-cursor-hide-arrow="true">
+                    about
+                  </Link>
                 </p>
               </SlideUp>
               <SlideUp delay={0.5}>
                 <p className="text-xl font-medium hover:text-primary-700 duration-150">
-                  <Link href="mailto:juandotulung@gmail.com">get in touch</Link>
+                  <Link
+                    href="mailto:juandotulung@gmail.com"
+                    data-cursor-hide-arrow="true"
+                  >
+                    get in touch
+                  </Link>
                 </p>
               </SlideUp>
               <SlideUp delay={0.6}>
                 <p className="text-xl font-medium hover:text-primary-700 duration-150">
-                  <Link href="https://github.com/HotPotatoC/juanchristian.com">
+                  <Link
+                    href="https://github.com/HotPotatoC/juanchristian.com"
+                    data-cursor-hide-arrow="true"
+                  >
                     source code
                   </Link>
                 </p>

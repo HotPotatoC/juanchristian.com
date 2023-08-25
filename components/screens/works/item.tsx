@@ -72,7 +72,14 @@ const WorkItem = ({ work }: WorkItemProps) => {
 
   return (
     <>
-      <Link href={work.path} passHref data-cursor-hide-arrow="true">
+      <Link
+        passHref
+        href={work.path}
+        rel={work.outlink ? 'noopener noreferrer' : undefined}
+        target={work.outlink ? '_blank' : undefined}
+        data-cursor-hide-arrow="true"
+        data-cursor-out-arrow={work.outlink.toString()}
+      >
         <motion.div
           ref={scrollTargetRef}
           className={cn([

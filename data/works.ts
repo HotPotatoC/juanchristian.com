@@ -6,6 +6,7 @@ type PastelColors =
   | 'green-pastel'
   | 'red-pastel'
   | 'orange-pastel'
+
 export type Work = {
   path: string
   description: string
@@ -24,6 +25,7 @@ export type Work = {
     | 'red-pastel'
     | 'orange-pastel'
   bgColor: `bg-${PastelColors}`
+  outlink: boolean
 }
 
 const works: Work[] = [
@@ -38,6 +40,7 @@ const works: Work[] = [
     year: 2022,
     color: 'white-pastel',
     bgColor: 'bg-white-pastel',
+    outlink: false,
   },
   {
     name: 'Stashable',
@@ -50,6 +53,7 @@ const works: Work[] = [
     year: 2022,
     color: 'red-pastel',
     bgColor: 'bg-red-pastel',
+    outlink: false,
   },
   {
     name: 'Twitter Clone',
@@ -70,6 +74,7 @@ const works: Work[] = [
     year: 2023,
     color: 'cyan-pastel',
     bgColor: 'bg-cyan-pastel',
+    outlink: true,
   },
   {
     name: 'TUNEMA',
@@ -82,6 +87,7 @@ const works: Work[] = [
     year: 2023,
     color: 'green-pastel',
     bgColor: 'bg-green-pastel',
+    outlink: false,
   },
   {
     name: 'Mindzzle',
@@ -94,6 +100,7 @@ const works: Work[] = [
     year: 2018,
     color: 'orange-pastel',
     bgColor: 'bg-orange-pastel',
+    outlink: false,
   },
   {
     name: 'Piggybank',
@@ -106,6 +113,7 @@ const works: Work[] = [
     year: 2023,
     color: 'pink-pastel',
     bgColor: 'bg-pink-pastel',
+    outlink: false,
   },
   {
     name: 'kvstore',
@@ -117,6 +125,7 @@ const works: Work[] = [
     year: 2022,
     color: 'yellow-pastel',
     bgColor: 'bg-yellow-pastel',
+    outlink: true,
   },
   {
     name: 'Sture',
@@ -128,6 +137,7 @@ const works: Work[] = [
     year: 2022,
     color: 'pink-pastel',
     bgColor: 'bg-pink-pastel',
+    outlink: true,
   },
   {
     name: 'Snowflake',
@@ -139,6 +149,7 @@ const works: Work[] = [
     year: 2022,
     color: 'cyan-pastel',
     bgColor: 'bg-cyan-pastel',
+    outlink: true,
   },
   {
     name: '2D Raycasting HTML+JS',
@@ -150,6 +161,7 @@ const works: Work[] = [
     year: 2022,
     color: 'white-pastel',
     bgColor: 'bg-white-pastel',
+    outlink: true,
   },
 ]
 

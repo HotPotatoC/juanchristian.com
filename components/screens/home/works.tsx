@@ -9,7 +9,13 @@ import Tilt from 'react-parallax-tilt'
 
 const PortfolioItem = ({ work }: { work: Work }) => {
   return (
-    <Link href={work.path} passHref>
+    <Link
+      passHref
+      href={work.path}
+      rel={work.outlink ? 'noopener noreferrer' : undefined}
+      target={work.outlink ? '_blank' : undefined}
+      data-cursor-out-arrow={work.outlink.toString()}
+    >
       <Tilt
         glareEnable={true}
         glareMaxOpacity={0.25}
