@@ -87,11 +87,11 @@ const WorkItem = ({ work }: WorkItemProps) => {
             <span className="text-black group-hover:text-black/60 font-semibold text-xl md:text-3xl lg:text-5xl duration-200">
               {work.name}
             </span>
-            <span className="text-black group-hover:text-black/60  font-medium text-lg md:text-xl lg:text-2xl">
+            <span className="text-black group-hover:text-black/60  font-medium text-lg md:text-xl lg:text-2xl duration-200">
               {work.role ?? work.venue}
             </span>
           </div>
-          <span className="text-black group-hover:text-black/60  font-semibold text-xl md:text-3xl lg:text-5xl">
+          <span className="text-black group-hover:text-black/60  font-semibold text-xl md:text-3xl lg:text-5xl duration-200">
             {work.year}
           </span>
         </motion.div>
