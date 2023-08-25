@@ -73,7 +73,7 @@ const CustomCursor = () => {
   return (
     <div
       className={cn(
-        'overflow-hidden opacity-0 pointer-events-none fixed z-[999] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-white-100 rounded-full mix-blend-difference [transition:opacity_300ms,transform_400ms] ease-[cubic-bezier(0.19,1,0.22,1)]',
+        'overflow-hidden opacity-0 pointer-events-none fixed z-[999] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-white-100 rounded-full mix-blend-difference [transition:opacity_300ms,transform_250ms] ease-[cubic-bezier(0.19,1,0.22,1)]',
         isActive && ['opacity-1', isActiveOnLink ? 'scale-[7]' : 'scale-[5]'],
         isClicked && 'scale-[3]'
       )}
@@ -84,44 +84,29 @@ const CustomCursor = () => {
           <motion.div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 text-black"
             initial={{
-              top: '50%',
-              left: '50%',
-              translateX: '-50%',
-              translateY: '-50%',
               opacity: 0,
             }}
             animate={{
-              top: '50%',
-              left: '50%',
-              translateX: '-50%',
-              translateY: '-50%',
               opacity: 1,
             }}
             exit={{
-              top: '50%',
-              left: '50%',
-              translateX: '-50%',
-              translateY: '-50%',
               opacity: 0,
             }}
             transition={transition}
           >
             <motion.div
-              initial={{ x: -12 }}
-              animate={{ x: 12 }}
+              initial={{ x: -15 }}
+              animate={{ x: 0 }}
               transition={{
-                repeat: Infinity,
-                repeatType: 'loop',
-                duration: 1.25,
+                duration: 1,
                 ease: expoEaseInOut,
-                delay: 0.25,
               }}
             >
               <svg
                 viewBox="0 0 22 22"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="scale-125"
+                className="scale-150"
               >
                 <path
                   d="M16.5627 9.66673L9.41071 2.51473L11.296 0.629395L21.6667 11.0001L11.296 21.3707L9.41071 19.4854L16.5627 12.3334H0.333374V9.66673H16.5627Z"
