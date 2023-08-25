@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 const CustomCursor = () => {
   const pathname = usePathname()
   const [isActive, setIsActive] = useState(false)
-  const [isActiveOnLink, setIsActiveOnLink] = useState(false)
+  const [showArrow, setShowArrow] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
   const [x, y] = useMousePosition()
   const transition = useTransition({ duration: 0.5, delay: 0 })
@@ -30,19 +30,39 @@ const CustomCursor = () => {
       ['button', '.expand-cursor'].join(', ')
     )
 
+    // arrows are automatically shown when the cursor is hovered on a link
+    // unless the link has data-hide-arrow attribute
     linkEls.forEach((el) => {
       el.addEventListener('mouseenter', () => {
-        setIsActive(true)
-        setIsActiveOnLink(true)
+        // if data-hide-cursor is true, hide the cursor
+        if (el instanceof HTMLElement && el.dataset.hideCursor === 'true') {
+          setIsActive(false)
+        } else {
+          setIsActive(true)
+        }
+
+        // if data-hide-arrow is true, hide the arrow
+        if (el instanceof HTMLElement && el.dataset.hideArrow === 'true') {
+          setShowArrow(false)
+        } else {
+          setShowArrow(true)
+        }
       })
       el.addEventListener('mouseleave', () => {
         setIsActive(false)
-        setIsActiveOnLink(false)
+        setShowArrow(false)
       })
     })
 
     otherEls.forEach((el) => {
-      el.addEventListener('mouseenter', () => setIsActive(true))
+      el.addEventListener('mouseenter', () => {
+        // if data-hide-cursor is true, hide the cursor
+        if (el instanceof HTMLElement && el.dataset.hideCursor === 'true') {
+          setIsActive(false)
+        } else {
+          setIsActive(true)
+        }
+      })
       el.addEventListener('mouseleave', () => setIsActive(false))
     })
 
@@ -50,11 +70,11 @@ const CustomCursor = () => {
       linkEls.forEach((el) => {
         el.addEventListener('mouseenter', () => {
           setIsActive(true)
-          setIsActiveOnLink(true)
+          setShowArrow(true)
         })
         el.addEventListener('mouseleave', () => {
           setIsActive(false)
-          setIsActiveOnLink(false)
+          setShowArrow(false)
         })
       })
 
@@ -74,13 +94,13 @@ const CustomCursor = () => {
     <div
       className={cn(
         'overflow-hidden opacity-0 pointer-events-none fixed z-[999] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-white-100 rounded-full mix-blend-difference [transition:opacity_300ms,transform_250ms] ease-[cubic-bezier(0.19,1,0.22,1)]',
-        isActive && ['opacity-1', isActiveOnLink ? 'scale-[7]' : 'scale-[5]'],
+        isActive && ['opacity-1', showArrow ? 'scale-[7]' : 'scale-[4]'],
         isClicked && 'scale-[3]'
       )}
       style={posStyle}
     >
       <AnimatePresence>
-        {isActiveOnLink && (
+        {showArrow && (
           <motion.div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 text-black"
             initial={{
@@ -97,6 +117,7 @@ const CustomCursor = () => {
             <motion.div
               initial={{ x: -15 }}
               animate={{ x: 0 }}
+              exit={{ x: -15 }}
               transition={{
                 duration: 1,
                 ease: expoEaseInOut,
