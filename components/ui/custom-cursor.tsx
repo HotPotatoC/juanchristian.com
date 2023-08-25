@@ -72,8 +72,20 @@ const CustomCursor = () => {
     return () => {
       linkEls.forEach((el) => {
         el.addEventListener('mouseenter', () => {
-          setIsActive(true)
-          setShowArrow(true)
+          if (el instanceof HTMLElement && el.dataset.cursorHide === 'true') {
+            setIsActive(false)
+          } else {
+            setIsActive(true)
+          }
+
+          if (
+            el instanceof HTMLElement &&
+            el.dataset.cursorHideArrow === 'true'
+          ) {
+            setShowArrow(false)
+          } else {
+            setShowArrow(true)
+          }
         })
         el.addEventListener('mouseleave', () => {
           setIsActive(false)
@@ -82,7 +94,13 @@ const CustomCursor = () => {
       })
 
       otherEls.forEach((el) => {
-        el.addEventListener('mouseenter', () => setIsActive(true))
+        el.addEventListener('mouseenter', () => {
+          if (el instanceof HTMLElement && el.dataset.hideCursor === 'true') {
+            setIsActive(false)
+          } else {
+            setIsActive(true)
+          }
+        })
         el.addEventListener('mouseleave', () => setIsActive(false))
       })
     }
