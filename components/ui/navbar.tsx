@@ -1,13 +1,13 @@
 'use client'
 
 import IconRightArrow from '@/components/icons/icon-right-arrow'
+import Link from '@/components/link'
 import Container from '@/components/ui/container'
 import useExpoEaseInOutTransition from '@/hooks/useExpoEaseInOutTransition'
 import cn from '@/lib/cn'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import Link from 'next/link'
 import { useState } from 'react'
 
 type SwitchDarkModeProps = {

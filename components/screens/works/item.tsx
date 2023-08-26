@@ -1,3 +1,4 @@
+import Link from '@/components/link'
 import { Work } from '@/data/works'
 import useMousePosition from '@/hooks/useMousePosition'
 import { expoEaseInOut } from '@/lib/animation'
@@ -11,7 +12,6 @@ import {
   useTransform,
 } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useCallback, useRef, useState } from 'react'
 
 type WorkItemProps = {
@@ -72,14 +72,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
 
   return (
     <>
-      <Link
-        passHref
-        href={work.path}
-        rel={work.outlink ? 'noopener noreferrer' : undefined}
-        target={work.outlink ? '_blank' : undefined}
-        data-cursor-hide-arrow="true"
-        data-cursor-out-arrow={work.outlink.toString()}
-      >
+      <Link href={work.path} external={work.outlink}>
         <motion.div
           ref={scrollTargetRef}
           className={cn([

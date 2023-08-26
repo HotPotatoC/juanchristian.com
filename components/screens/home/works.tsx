@@ -1,22 +1,16 @@
 import SlideUp from '@/components/animation/slide-up'
+import Link from '@/components/link'
 import Container from '@/components/ui/container'
 import works, { Work } from '@/data/works'
 import toBase64 from '@/lib/base64'
 import shimmer from '@/lib/shimmer'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import Tilt from 'react-parallax-tilt'
 
 const WorkItem = ({ work }: { work: Work }) => {
   return (
-    <Link
-      passHref
-      href={work.path}
-      rel={work.outlink ? 'noopener noreferrer' : undefined}
-      target={work.outlink ? '_blank' : undefined}
-      data-cursor-out-arrow={work.outlink.toString()}
-    >
+    <Link href={work.path} external={work.outlink}>
       <Tilt
         glareEnable={true}
         glareMaxOpacity={0.25}
