@@ -17,8 +17,8 @@ const createSEO = ({ title, description }: MetadataOptions): Metadata => ({
     images: [
       {
         url: 'https://www.juanchristian.com/seo-image.png',
-        width: 1080,
-        height: 1080,
+        width: 1200,
+        height: 627,
         alt: 'Me',
       },
     ],
