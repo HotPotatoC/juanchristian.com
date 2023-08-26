@@ -29,11 +29,6 @@ body {
 }
 
 @font-face {
-  font-family: 'NIKEA';
-  src: url('/fonts/NIKEA.otf') format('opentype');
-}
-
-@font-face {
   font-family: 'GeneralSans-Regular';
   src: url('/fonts/GeneralSans-Regular.woff2') format('woff2'),
     url('/fonts/GeneralSans-Regular.woff') format('woff'),

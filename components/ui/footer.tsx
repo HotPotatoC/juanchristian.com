@@ -1,6 +1,6 @@
 'use client'
 import SlideUp from '@/components/animation/slide-up'
-import ContentWrapper from '@/components/ui/content-wrapper'
+import Container from '@/components/ui/container'
 import useAsiaJakartaTime from '@/hooks/useTime'
 
 import { motion } from 'framer-motion'
@@ -87,7 +87,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full py-6 relative overflow-hidden">
-      <ContentWrapper extraClass="px-6 md:px-12 pt-12">
+      <Container className="px-6 md:px-12 pt-12">
         <div className="bg-white-200 dark:bg-white-100 bg-opacity-50 dark:bg-opacity-5 rounded-3xl p-5 md:p-12 overflow-hidden">
           <SlideUp>
             <h1 className="hover:text-primary-700 font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl duration-150">
@@ -163,12 +163,9 @@ const Footer = () => {
               </SlideUp>
             </div>
             <Socials />
-            {/* <p className="text-xl opacity-60 hover:opacity-100 duration-150">
-          <Link href="/">TOP</Link>
-        </p> */}
           </div>
         </div>
-      </ContentWrapper>
+      </Container>
     </footer>
   )
 }

@@ -1,6 +1,6 @@
 import SlideUp from '@/components/animation/slide-up'
-import ContentWrapper from '@/components/ui/content-wrapper'
-import { useTransition } from '@/lib/animation'
+import Container from '@/components/ui/container'
+import useExpoEaseInOutTransition from '@/hooks/useExpoEaseInOutTransition'
 import cn from '@/lib/cn'
 
 import { motion } from 'framer-motion'
@@ -100,10 +100,10 @@ const EducationTable = () => {
 }
 
 const Skills = () => {
-  const transition = useTransition()
+  const transition = useExpoEaseInOutTransition()
   return (
     <section id="skills" className="skills mt-24">
-      <ContentWrapper extraClass="px-6 md:px-12 pt-12">
+      <Container className="px-6 md:px-12 pt-12">
         <motion.div
           className="border-t border-opacity-50 border-black dark:border-white-100"
           initial={{ width: 0 }}
@@ -127,7 +127,7 @@ const Skills = () => {
           transition={transition}
           viewport={{ once: true, margin: '10px' }}
         />
-      </ContentWrapper>
+      </Container>
     </section>
   )
 }

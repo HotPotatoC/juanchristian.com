@@ -1,8 +1,8 @@
 'use client'
 
 import IconRightArrow from '@/components/icons/icon-right-arrow'
-import ContentWrapper from '@/components/ui/content-wrapper'
-import { useTransition } from '@/lib/animation'
+import Container from '@/components/ui/container'
+import useExpoEaseInOutTransition from '@/hooks/useExpoEaseInOutTransition'
 import cn from '@/lib/cn'
 
 import { AnimatePresence, motion } from 'framer-motion'
@@ -63,7 +63,7 @@ const SwitchDarkMode = ({ overlayOpen }: SwitchDarkModeProps) => {
 
   const { theme, setTheme } = useTheme()
 
-  const transition = useTransition({ duration: 0.25 })
+  const transition = useExpoEaseInOutTransition({ duration: 0.25 })
 
   return (
     <button
@@ -145,13 +145,13 @@ const NavbarOverlay = ({ close }: NavbarOverlayProps) => {
       }}
       className="fixed top-0 left-0 overflow-hidden z-[49] w-screen backdrop-blur-lg bg-white-100/75 dark:bg-black/75"
     >
-      <ContentWrapper extraClass="px-6 md:px-12 pt-64">
+      <Container className="px-6 md:px-12 pt-64">
         <div className="flex flex-col space-y-12">
           <NavLink to="/" label="HOME" onClick={close} />
           <NavLink to="/works" label="WORKS" onClick={close} />
           <NavLink to="/about" label="ABOUT" onClick={close} />
         </div>
-      </ContentWrapper>
+      </Container>
     </motion.nav>
   )
 }
@@ -166,7 +166,7 @@ const Navbar = () => {
         {isOverlayOpen && <NavbarOverlay close={closeOverlay} />}
       </AnimatePresence>
       <nav className="fixed z-50 w-full py-2">
-        <ContentWrapper extraClass="px-6 md:px-12 pt-12">
+        <Container className="px-6 md:px-12 pt-12">
           <div className="flex justify-between items-center">
             <button
               className={cn([
@@ -179,7 +179,7 @@ const Navbar = () => {
             </button>
             <SwitchDarkMode overlayOpen={isOverlayOpen} />
           </div>
-        </ContentWrapper>
+        </Container>
       </nav>
     </>
   )

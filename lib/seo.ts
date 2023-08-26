@@ -5,10 +5,7 @@ type MetadataOptions = {
   description: string
 } & Partial<Metadata>
 
-export const createSEO = ({
-  title,
-  description,
-}: MetadataOptions): Metadata => ({
+const createSEO = ({ title, description }: MetadataOptions): Metadata => ({
   title,
   description,
   openGraph: {
@@ -32,3 +29,5 @@ export const createSEO = ({
     card: 'summary_large_image',
   },
 })
+
+export default createSEO

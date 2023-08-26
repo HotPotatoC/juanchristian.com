@@ -36,12 +36,12 @@ const WorkItem = ({ work }: WorkItemProps) => {
   const mousePositionX = useMotionValue(0)
   mousePositionX.set(x)
 
-  const [workItemElementWidth, setWorkItemElementWidth] = useState(0)
-  const [workItemImageElementWidth, setWorkItemImageElementWidth] = useState(0)
+  const [elementWidth, setElementWidth] = useState(0)
+  const [imageElementWidth, setImageElementWidth] = useState(0)
   const onMouseEnter = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
     setIsHovered(true)
-    setWorkItemElementWidth(e.currentTarget.offsetWidth)
+    setElementWidth(e.currentTarget.offsetWidth)
   }, [])
 
   const onMouseLeave = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -51,22 +51,22 @@ const WorkItem = ({ work }: WorkItemProps) => {
 
   const variants = {
     default: {
-      left: x - workItemImageElementWidth / 2,
+      left: x - imageElementWidth / 2,
       top: y - 125,
       opacity: 0,
       scale: 0.95,
     },
     hover: {
-      left: x - workItemImageElementWidth / 2,
+      left: x - imageElementWidth / 2,
       top: y - 125,
       opacity: 1,
       scale: 1,
     },
   }
 
-  const workItemSideRotation = useTransform(
+  const imageRotationTransform = useTransform(
     mousePositionX,
-    [0, workItemElementWidth],
+    [0, elementWidth],
     [-8, 8]
   )
 
@@ -112,7 +112,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
             exit="default"
             transition={{ duration: 0.25, ease: expoEaseInOut }}
             className="cursor-none fixed z-[9999] top-0 left-0 pointer-events-none"
-            style={{ rotate: workItemSideRotation }}
+            style={{ rotate: imageRotationTransform }}
           >
             <Image
               src={work.image}
@@ -122,7 +122,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
               className="relative z-[9999] w-full h-[250px] object-cover rounded-xl md:rounded-2xl overflow-hidden shadow-lg"
               sizes="(max-width: 639px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 25vw"
               onLoad={(e) => {
-                setWorkItemImageElementWidth(e.currentTarget.offsetWidth)
+                setImageElementWidth(e.currentTarget.offsetWidth)
               }}
             />
           </motion.div>

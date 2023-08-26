@@ -1,13 +1,14 @@
 import SlideUp from '@/components/animation/slide-up'
-import ContentWrapper from '@/components/ui/content-wrapper'
+import Container from '@/components/ui/container'
 import works, { Work } from '@/data/works'
-import { shimmer, toBase64 } from '@/lib/utils'
+import toBase64 from '@/lib/base64'
+import shimmer from '@/lib/shimmer'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import Tilt from 'react-parallax-tilt'
 
-const PortfolioItem = ({ work }: { work: Work }) => {
+const WorkItem = ({ work }: { work: Work }) => {
   return (
     <Link
       passHref
@@ -60,18 +61,18 @@ const PortfolioItem = ({ work }: { work: Work }) => {
   )
 }
 
-export const Works = () => {
+const HomeWorks = () => {
   return (
     <section className="relative z-20 mt-12 tracking-tighter">
-      <ContentWrapper extraClass="px-6 md:px-6 xl:px-48 py-6 md:py-24">
+      <Container className="px-6 md:px-6 xl:px-48 py-6 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-32">
           {works.map((work) => (
-            <PortfolioItem key={work.path} work={work} />
+            <WorkItem key={work.path} work={work} />
           ))}
         </div>
-      </ContentWrapper>
+      </Container>
     </section>
   )
 }
 
-export default Works
+export default HomeWorks

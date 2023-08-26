@@ -1,6 +1,6 @@
 import FadeIn from '@/components/animation/fade-in'
-import ContentWrapper from '@/components/ui/content-wrapper'
-import { useTransition } from '@/lib/animation'
+import Container from '@/components/ui/container'
+import useExpoEaseInOutTransition from '@/hooks/useExpoEaseInOutTransition'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
@@ -13,7 +13,7 @@ const AboutTitle = () => {
     offset: ['end end', 'end start'],
   })
 
-  const profileTransition = useTransition({ delay: 1 })
+  const profileTransition = useExpoEaseInOutTransition({ delay: 1 })
   const profileTransformRotate = useTransform(
     scrollYProgress,
     [0.15, 1],
@@ -26,13 +26,13 @@ const AboutTitle = () => {
   )
 
   return (
-    <ContentWrapper
+    <Container
       ref={scrollTargetRef}
-      extraClass="pt-12 px-6 md:px-12 md:pt-12 lg:pt-24"
+      className="pt-12 px-6 md:px-12 md:pt-12 lg:pt-24"
     >
       <FadeIn className="relative">
         <motion.div
-          className="select-none absolute left-64 from-bg-black to-white-400 rounded-xl md:rounded-3xl overflow-hidden origin-bottom-right"
+          className="select-none absolute left-64 rounded-xl md:rounded-3xl overflow-hidden origin-bottom-right"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: -2 }}
           transition={profileTransition}
@@ -60,7 +60,7 @@ const AboutTitle = () => {
           </p>
         </div>
       </FadeIn>
-    </ContentWrapper>
+    </Container>
   )
 }
 

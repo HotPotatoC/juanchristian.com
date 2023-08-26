@@ -1,7 +1,7 @@
 import ThemeProvider from '@/components/theme-provider'
 import Footer from '@/components/ui/footer'
 import Navbar from '@/components/ui/navbar'
-import { createSEO } from '@/lib/seo'
+import createSEO from '@/lib/seo'
 import '@/styles/global.css'
 
 import { Analytics } from '@vercel/analytics/react'

@@ -8,7 +8,7 @@ const dateOptions: Intl.DateTimeFormatOptions = {
   hourCycle: 'h23',
 }
 
-export function useAsiaJakartaTime() {
+export default function useAsiaJakartaTime() {
   const [time, setTime] = useState(() =>
     new Date().toLocaleTimeString([], dateOptions)
   )
@@ -22,5 +22,3 @@ export function useAsiaJakartaTime() {
 
   return time
 }
-
-export default useAsiaJakartaTime

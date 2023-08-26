@@ -1,8 +1,9 @@
 'use client'
 
 import { useEventListener } from '@/hooks/useEventListener'
+import useExpoEaseInOutTransition from '@/hooks/useExpoEaseInOutTransition'
 import useMousePosition from '@/hooks/useMousePosition'
-import { expoEaseInOut, useTransition } from '@/lib/animation'
+import { expoEaseInOut } from '@/lib/animation'
 import cn from '@/lib/cn'
 
 import { AnimatePresence, motion } from 'framer-motion'
@@ -21,7 +22,7 @@ const CustomCursor = () => {
 
   const [isClicked, setIsClicked] = useState(false)
   const [x, y] = useMousePosition()
-  const transition = useTransition({ duration: 0.5, delay: 0 })
+  const transition = useExpoEaseInOutTransition({ duration: 0.5, delay: 0 })
 
   const onMouseUp = () => setIsClicked(false)
   const onMouseDown = () => setIsClicked(true)
