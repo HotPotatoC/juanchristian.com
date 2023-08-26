@@ -2,12 +2,24 @@ import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 
 type LinkProps = {
   children: React.ReactNode
+  hideInternalArrow?: boolean
   external?: boolean
 } & NextLinkProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement>
 
-const InternalLink = ({ passHref, href, children, ...props }: LinkProps) => (
-  <NextLink passHref={passHref} href={href} {...props}>
+const InternalLink = ({
+  passHref,
+  href,
+  children,
+  hideInternalArrow,
+  ...props
+}: LinkProps) => (
+  <NextLink
+    passHref={passHref}
+    href={href}
+    data-cursor-hide-arrow={hideInternalArrow ? 'true' : undefined}
+    {...props}
+  >
     {children}
   </NextLink>
 )

@@ -72,7 +72,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
 
   return (
     <>
-      <Link href={work.path} external={work.outlink}>
+      <Link href={work.path} external={work.outlink} hideInternalArrow={true}>
         <motion.div
           ref={scrollTargetRef}
           className={cn([
