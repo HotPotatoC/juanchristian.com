@@ -91,7 +91,9 @@ const Footer = () => {
         <div className="bg-white-200 dark:bg-white-100 bg-opacity-50 dark:bg-opacity-5 rounded-3xl p-5 md:p-12 overflow-hidden">
           <SlideUp>
             <h1 className="hover:text-primary-700 font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl duration-150">
-              <Link href="mailto:juandotulung@gmail.com">GET IN TOUCH</Link>
+              <Link external href="mailto:juandotulung@gmail.com">
+                GET IN TOUCH
+              </Link>
             </h1>
           </SlideUp>
           <SlideUp
@@ -99,7 +101,7 @@ const Footer = () => {
             className="flex flex-col md:flex-row items-center md:space-x-4"
           >
             <h1 className="hover:text-primary-700 font-semibold text-lg md:text-xl duration-150">
-              <Link href="mailto:juandotulung@gmail.com">
+              <Link external href="mailto:juandotulung@gmail.com">
                 juandotulung@gmail.com
               </Link>
             </h1>
@@ -144,6 +146,7 @@ const Footer = () => {
               <SlideUp delay={0.5}>
                 <p className="text-xl font-medium hover:text-primary-700 duration-150">
                   <Link
+                    external
                     href="mailto:juandotulung@gmail.com"
                     data-cursor-hide-arrow="true"
                   >
@@ -154,6 +157,7 @@ const Footer = () => {
               <SlideUp delay={0.6}>
                 <p className="text-xl font-medium hover:text-primary-700 duration-150">
                   <Link
+                    external
                     href="https://github.com/HotPotatoC/juanchristian.com"
                     data-cursor-hide-arrow="true"
                   >
