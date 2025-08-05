@@ -1,18 +1,24 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --white: #ebdcca;
   --black: #151519;
   --red: #d52a1f;
+  --yellow: #e6d359;
+  --blue: #0d29be;
+  --green: #007a3d;
 
-  --background: var(--white);
+  --background: var(--black);
 }
 
 @theme inline {
   --color-white: var(--white);
   --color-black: var(--black);
   --color-red: var(--red);
+  --color-yellow: var(--yellow);
+  --color-blue: var(--blue);
+  --color-green: var(--green);
+
   --color-background: var(--white);
 
   --text-xs: 0.625rem;
@@ -31,6 +37,9 @@
   --text-10xl: 11.625rem;
   --text-11xl: 14.562rem;
 
+  --font-gosha: var(--font-gosha-sans);
+  --font-sans: var(--font-neue-montreal);
+
   --ease-in-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -40,7 +49,7 @@ body {
 }
 
 ::selection {
-  @apply bg-red text-white dark:bg-red dark:text-black;
+  @apply bg-red text-white;
 }
 
 :focus {

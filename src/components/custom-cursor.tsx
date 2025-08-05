@@ -142,17 +142,24 @@ const CustomCursor = () => {
   };
 
   return (
-    <div
-      className={cn(
-        "overflow-hidden mix-blend-difference opacity-0 animate-[spin_2s_linear_infinite] pointer-events-none fixed z-[1000] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-white [transition:opacity_300ms,scale_250ms] ease-in-out-expo",
-        isActive && [
-          "opacity-100",
-          showArrow || showOutArrow ? "scale-[7]" : "scale-[4]",
-        ],
-        isClicked && "scale-[3]"
-      )}
-      style={posStyle}
-    ></div>
+    <>
+      <div
+        className={cn(
+          "overflow-hidden mix-blend-color-dodge opacity-0 animate-[spin_2s_linear_infinite] pointer-events-none fixed z-[1000] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-red [transition:opacity_300ms,scale_250ms] ease-in-out-expo",
+          isActive && "opacity-100 scale-[6]",
+          isClicked && "scale-[3]"
+        )}
+        style={posStyle}
+      />
+      <div
+        className={cn(
+          "overflow-hidden mix-blend-difference opacity-0 animate-[spin_1s_linear_infinite] pointer-events-none fixed z-[1001] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-red [transition:opacity_300ms,scale_250ms,border-radius_250ms] ease-in-out-expo",
+          isActive && "opacity-100 scale-[4]",
+          isClicked && "scale-[2.5] rounded-full"
+        )}
+        style={posStyle}
+      />
+    </>
   );
 };
 
