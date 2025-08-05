@@ -72,13 +72,13 @@ export default function RootLayout({
       lang='en'
       className={`${ppGoshaSans.variable} ${ppNeueMontreal.variable}`}
     >
-      <body className='font-gosha overflow-hidden'>
+      <body className='font-gosha overflow-x-hidden'>
         <NoiseOverlay />
         <FrameOverlay />
         <DynamicCustomCursor />
-        <main className='w-full h-screen px-12 py-8'>
+        <main className='w-full h-screen px-6 md:px-12 py-8'>
           <Header />
-          <section className='@container/main mx-auto w-full max-w-7xl mt-12'>
+          <section className='@container/main mx-auto w-full max-w-7xl'>
             {children}
           </section>
         </main>

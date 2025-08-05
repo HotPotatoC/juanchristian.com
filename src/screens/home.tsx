@@ -2,18 +2,20 @@
 
 import Icon from "@/components/icons";
 import { expoEaseInOut } from "@/lib/animation-transitions";
-import { motion } from "motion/react";
+import { motion, useScroll, useSpring } from "motion/react";
 import Link from "next/link";
 
 // import SlideUp from "@/components/animated/slide-up";
 
 export default function HomeScreen() {
   return (
-    <>
+    <section className='mt-12 mb-[900px]'>
       <SectionHeadline />
-      <SectionLinks />
+      {/* <SectionLinks /> */}
       {/* <SectionLinksAnimated /> */}
-    </>
+
+      <SectionSelectedWorks />
+    </section>
   );
 }
 
@@ -23,11 +25,17 @@ const SectionHeadline = () => (
       Hello! I{`'`}m Juan!
     </h1>
 
-    <section className='flex justify-between items-baseline w-full mb-8 bg-green px-8 py-6'>
-      <span className='font-bold text-[3cqw]/tight text-white'>
+    {/* <h1 className='font-bold text-[13.931cqw]/tight text-red whitespace-nowrap'>
+      Juan Christian
+    </h1> */}
+
+    <section className='flex justify-between items-baseline w-full mb-8 bg-green px-4 py-3 md:px-8 md:py-6'>
+      <span className='font-bold text-[6cqw] md:text-[3cqw]/tight text-white'>
         software engineer
       </span>
-      <span className='font-bold text-[3cqw]/tight text-white'>indonesia</span>
+      <span className='font-bold text-[6cqw] md:text-[3cqw]/tight text-white'>
+        indonesia
+      </span>
     </section>
   </>
 );
@@ -43,16 +51,16 @@ const SectionLinks = () => {
   return (
     <div className='w-full bg-white'>
       {/* Container for links that will be revealed */}
-      <section className='flex justify-between items-baseline w-full py-6 px-8'>
+      <section className='flex flex-col space-y-6 lg:flex-row lg:space-x-2 lg:space-y-0 justify-between items-baseline w-full py-6 px-8'>
         {links.map(({ href, label }) => (
           <Link href={href} key={href}>
-            <div className='flex items-baseline space-x-2 group'>
-              <span className='text-[3cqw]/tight text-black group-hover:text-red font-bold'>
+            <div className='flex space-x-4 items-baseline group'>
+              <span className='text-[5cqw]/tight lg:text-[3cqw]/tight text-black group-hover:text-red font-bold'>
                 {label}
               </span>
               <Icon
                 name='arrow-up-right'
-                className='inline-block size-5 ml-2 text-black group-hover:text-red'
+                className='inline-block size-[3cqw] lg:size-[1.5cqw] text-black group-hover:text-red'
               />
             </div>
           </Link>
@@ -107,5 +115,34 @@ const SectionLinksAnimated = () => {
         className='absolute inset-0 border-[6px] border-red bg-transparent origin-left pointer-events-none'
       />
     </div>
+  );
+};
+
+const SectionSelectedWorks = () => {
+  const { scrollYProgress } = useScroll();
+  const scale = useSpring(scrollYProgress, {
+    stiffness: 500,
+    damping: 50,
+    restDelta: 0.001,
+  });
+
+  const rotate = useSpring(scrollYProgress, {
+    stiffness: 500,
+    damping: 20,
+    restDelta: 0.1,
+  });
+  return (
+    <section className='relative mt-[550px]'>
+      <motion.div
+        className='fixed left-0 -bottom-12 size-[600px] border-[32px] border-red'
+        style={{
+          scale,
+          rotate,
+        }}
+      />
+      <h1 className='font-bold text-6xl text-white whitespace-nowrap'>
+        SELECTED WORKS
+      </h1>
+    </section>
   );
 };
