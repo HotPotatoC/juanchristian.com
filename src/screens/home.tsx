@@ -3,9 +3,13 @@
 import AnimateSlide from "@/components/animated/slide";
 import Icon from "@/components/icons";
 import { expoEaseInOut } from "@/lib/animation-transitions";
-import { motion, useScroll } from "motion/react";
+import { useFrameOverlay } from "@/providers/frame-overlay-provider";
+import { motion, useInView } from "motion/react";
 import Link from "next/link";
 import * as React from "react";
+
+import ImageCuriona from "@/assets/works/curiona.png";
+import Image from "next/image";
 
 // import SlideUp from "@/components/animated/slide-up";
 
@@ -17,9 +21,7 @@ export default function HomeScreen() {
         {/* <SectionLinks /> */}
         {/* <SectionLinksAnimated /> */}
       </section>
-      <section className='@container/featured-works mx-auto w-full mb-[900px]'>
-        <SectionSelectedWorks />
-      </section>
+      <SectionSelectedWorks />
     </>
   );
 }
@@ -124,21 +126,46 @@ const SectionLinksAnimated = () => {
 };
 
 const SectionSelectedWorks = () => {
-  const scrollTargetRef = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: scrollTargetRef,
-    offset: ["end end", "start start"],
-  });
-  // const x = useTransform(scrollYProgress, [0, 1], ["150%", "-200%"]);
+  const { updateFrameSize } = useFrameOverlay();
+  const ref = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { amount: 0.8 });
 
-  // const rotate = useSpring(scrollYProgress, {
-  //   stiffness: 500,
-  //   damping: 20,
-  //   restDelta: 0.1,
-  // });
+  React.useEffect(() => {
+    if (isInView) {
+      updateFrameSize("10px");
+    } else {
+      updateFrameSize("20px");
+    }
+  }, [isInView, updateFrameSize]);
+
+  const works = [
+    {
+      title: "Curiona",
+      link: "/works/curiona",
+      imageSrc: ImageCuriona,
+    },
+    {
+      title: "Curiona",
+      link: "/works/curiona",
+      imageSrc: ImageCuriona,
+    },
+    {
+      title: "Curiona",
+      link: "/works/curiona",
+      imageSrc: ImageCuriona,
+    },
+    {
+      title: "Curiona",
+      link: "/works/curiona",
+      imageSrc: ImageCuriona,
+    },
+  ];
 
   return (
-    <section className='my-[550px]' ref={scrollTargetRef}>
+    <section
+      className='@container/featured-works mx-auto w-full h-full mt-[550px] mb-[900px]'
+      ref={ref}
+    >
       {/* <motion.div
         className='fixed left-0 -bottom-12 size-[600px] border-[32px] border-red'
         style={{
@@ -147,39 +174,57 @@ const SectionSelectedWorks = () => {
         }}
       /> */}
       <AnimateSlide direction='right' delay={0.5}>
-        <span className='text-2xl text-red'>01</span>
+        <span className='text-2xl text-white select-none'>01</span>
       </AnimateSlide>
       <div className='relative w-fit'>
-        <div className='relative z-20'>
-          <motion.h1
-            initial={{
-              y: 50,
-              rotateY: 25,
-              rotateX: 25,
-              rotateZ: -10,
-              opacity: 0,
-            }}
-            whileInView={{
-              y: 0,
-              rotateY: 0,
-              rotateX: 0,
-              rotateZ: 0,
-              opacity: 1,
-            }}
-            transition={{ duration: 1, ease: expoEaseInOut }}
-            viewport={{ amount: 0.8, once: true }}
-            className='font-bold text-[14cqw] md:text-[9cqw] text-white whitespace-nowrap selection:bg-white! selection:text-red! mb-8'
-          >
-            featured works
-          </motion.h1>
-        </div>
+        <motion.h1
+          initial={{
+            y: 50,
+            rotateY: 25,
+            rotateX: 25,
+            rotateZ: -10,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            rotateY: 0,
+            rotateX: 0,
+            rotateZ: 0,
+            opacity: 1,
+          }}
+          transition={{ duration: 1, ease: expoEaseInOut, delay: 0.5 }}
+          viewport={{ amount: 0.8, once: true }}
+          className='relative z-20 font-bold text-[8cqw] md:text-[5cqw] text-white whitespace-nowrap selection:bg-white! selection:text-red! mb-8'
+        >
+          featured works
+        </motion.h1>
         <motion.div
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
-          transition={{ duration: 1, ease: expoEaseInOut, delay: 0.4 }}
+          transition={{ duration: 1, ease: expoEaseInOut }}
           viewport={{ amount: 0.8, once: true }}
           className='absolute inset-0 origin-bottom z-10 bg-red'
         />
+      </div>
+
+      <div className='grid grid-cols-2 gap-24 place-items-center mt-12'>
+        {works.map((work, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: expoEaseInOut, delay: idx * 0.2 }}
+            viewport={{ amount: 0.2, once: true }}
+          >
+            <Link href={work.link}>
+              <Image
+                src={work.imageSrc}
+                alt={work.title}
+                className='select-none w-xl h-full'
+              />
+            </Link>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

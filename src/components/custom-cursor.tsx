@@ -1,8 +1,8 @@
 "use client";
 
-import { useEventListener } from "@/hooks/useEventListener";
-import useExpoEaseInOutTransition from "@/hooks/useExpoEaseInOutTransition";
-import useMousePosition from "@/hooks/useMousePosition";
+import { useEventListener } from "@/hooks/use-event-listener";
+import { useIsMobile } from "@/hooks/use-mobile";
+import useMousePosition from "@/hooks/use-mouse-position";
 import { cn } from "@/lib/common";
 
 import { usePathname } from "next/navigation";
@@ -10,17 +10,11 @@ import { useEffect, useState } from "react";
 
 const CustomCursor = () => {
   const pathname = usePathname();
+  const isMobile = useIsMobile();
   const [isActive, setIsActive] = useState(false);
-
-  // showArrow a right arrow
-  const [showArrow, setShowArrow] = useState(false);
-  // showOutArrow is used for showing an up right arrow when the cursor is hovered on a link
-  // that leads to an external website
-  const [showOutArrow, setShowOutArrow] = useState(false);
 
   const [isClicked, setIsClicked] = useState(false);
   const [x, y] = useMousePosition();
-  const transition = useExpoEaseInOutTransition({ duration: 0.5, delay: 0 });
 
   const onMouseUp = () => setIsClicked(false);
   const onMouseDown = () => setIsClicked(true);
@@ -45,29 +39,9 @@ const CustomCursor = () => {
         } else {
           setIsActive(true);
         }
-
-        // if data-cursor-out-arrow is true, show an up right arrow
-        if (el instanceof HTMLElement && el.dataset.cursorOutArrow === "true") {
-          setShowOutArrow(true);
-        } else {
-          setShowOutArrow(false);
-        }
-
-        // if data-cursor-hide-arrow is true or data-cursor-out-arrow is true, hide the arrow
-        if (
-          el instanceof HTMLElement &&
-          (el.dataset.cursorHideArrow === "true" ||
-            el.dataset.cursorOutArrow === "true")
-        ) {
-          setShowArrow(false);
-        } else {
-          setShowArrow(true);
-        }
       });
       el.addEventListener("mouseleave", () => {
         setIsActive(false);
-        setShowArrow(false);
-        setShowOutArrow(false);
       });
     });
 
@@ -94,32 +68,9 @@ const CustomCursor = () => {
           } else {
             setIsActive(true);
           }
-
-          // if data-cursor-out-arrow is true, show an up right arrow
-          if (
-            el instanceof HTMLElement &&
-            el.dataset.cursorOutArrow === "true"
-          ) {
-            setShowOutArrow(true);
-          } else {
-            setShowOutArrow(false);
-          }
-
-          // if data-cursor-hide-arrow is true or data-cursor-out-arrow is true, hide the arrow
-          if (
-            el instanceof HTMLElement &&
-            (el.dataset.cursorHideArrow === "true" ||
-              el.dataset.cursorOutArrow === "true")
-          ) {
-            setShowArrow(false);
-          } else {
-            setShowArrow(true);
-          }
         });
         el.addEventListener("mouseleave", () => {
           setIsActive(false);
-          setShowArrow(false);
-          setShowOutArrow(false);
         });
       });
 
@@ -142,24 +93,26 @@ const CustomCursor = () => {
   };
 
   return (
-    <>
-      <div
-        className={cn(
-          "overflow-hidden mix-blend-color-dodge opacity-0 animate-[spin_2s_linear_infinite] pointer-events-none fixed z-[1000] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-red [transition:opacity_300ms,scale_250ms] ease-in-out-expo",
-          isActive && "opacity-100 scale-[6]",
-          isClicked && "scale-[3]"
-        )}
-        style={posStyle}
-      />
-      <div
-        className={cn(
-          "overflow-hidden mix-blend-difference opacity-0 animate-[spin_1s_linear_infinite] pointer-events-none fixed z-[1001] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-red [transition:opacity_300ms,scale_250ms,border-radius_250ms] ease-in-out-expo",
-          isActive && "opacity-100 scale-[4]",
-          isClicked && "scale-[2.5] rounded-full"
-        )}
-        style={posStyle}
-      />
-    </>
+    !isMobile && (
+      <>
+        <div
+          className={cn(
+            "overflow-hidden mix-blend-color-dodge opacity-0 animate-[spin_2s_linear_infinite] pointer-events-none fixed z-[1000] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-red [transition:opacity_300ms,scale_250ms] ease-in-out-expo",
+            isActive && "opacity-100 scale-[6]",
+            isClicked && "scale-[3]"
+          )}
+          style={posStyle}
+        />
+        <div
+          className={cn(
+            "overflow-hidden mix-blend-difference opacity-0 animate-[spin_1s_linear_infinite] pointer-events-none fixed z-[1001] transform -translate-x-1/2 -translate-y-1/2 p-2 hidden lg:block bg-red [transition:opacity_300ms,scale_250ms,border-radius_250ms] ease-in-out-expo",
+            isActive && "opacity-100 scale-[4]",
+            isClicked && "scale-[2.5] rounded-full"
+          )}
+          style={posStyle}
+        />
+      </>
+    )
   );
 };
 

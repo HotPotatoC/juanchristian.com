@@ -1,5 +1,6 @@
 import FrameOverlay from "@/components/frame-overlay";
 import Menu from "@/components/menu";
+import NoiseOverlay from "@/components/noise-overlay";
 import buildSEO from "@/lib/seo";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -90,7 +91,7 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning className='font-gosha overflow-x-hidden'>
         <Providers>
-          {/* <NoiseOverlay /> */}
+          <NoiseOverlay />
           <FrameOverlay />
           <DynamicCustomCursor />
           <Menu />

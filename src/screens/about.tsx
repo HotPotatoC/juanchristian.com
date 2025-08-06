@@ -1,18 +1,19 @@
 "use client";
 
 import ImageMe from "@/assets/me.png";
+import Image from "next/image";
 // import SlideUp from "@/components/animated/slide-up";
 
-import Image from "next/image";
 export default function AboutScreen() {
   return (
-    <section className='@container/about mx-auto w-full max-w-7xl mt-24'>
+    <section className='@container/about mx-auto w-full max-w-7xl mt-52'>
       <section className='flex flex-col space-y-6 font-sans font-medium text-white text-center text-2xl md:text-4xl'>
         <p>
           Juan is born and raised in Indonesia, who studies software
           engineering,{" "}
           <span className='font-gosha text-yellow'>
-            specializing in web development and backend development.
+            currently specializing in web development specifically in building
+            backend applications.
           </span>{" "}
           Being in front of his computer back when he was a kid, became the
           catalyst to dive into tech.
