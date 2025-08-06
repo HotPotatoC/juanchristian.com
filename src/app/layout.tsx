@@ -1,9 +1,9 @@
+import CustomCursor from "@/components/custom-cursor";
 import FrameOverlay from "@/components/frame-overlay";
 import Menu from "@/components/menu";
 import NoiseOverlay from "@/components/noise-overlay";
 import buildSEO from "@/lib/seo";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "./providers";
@@ -71,13 +71,6 @@ export const metadata: Metadata = buildSEO({
   description: "Juan Christian is a Developer based in Indonesia",
 });
 
-const DynamicCustomCursor = dynamic(
-  () => import("@/components/custom-cursor"),
-  {
-    ssr: true,
-  }
-);
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -93,7 +86,7 @@ export default function RootLayout({
         <Providers>
           <NoiseOverlay />
           <FrameOverlay />
-          <DynamicCustomCursor />
+          <CustomCursor />
           <Menu />
           <main className='w-full h-screen px-6 md:px-12 py-8'>{children}</main>
         </Providers>
