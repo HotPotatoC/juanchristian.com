@@ -27,7 +27,7 @@ export default function Menu() {
 
   return (
     <>
-      <header className='fixed z-[101] left-0 right-0 @container/header mx-auto w-full max-w-7xl px-4 py-8'>
+      <header className='@container/header fixed z-[101] right-0 top-0 mx-auto px-12 py-8'>
         <nav className='flex justify-end items-center select-none'>
           <Button
             onClick={toggleMenu}

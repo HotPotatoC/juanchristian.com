@@ -120,14 +120,15 @@ const SectionSelectedWorks = () => {
         />
       </div>
 
-      <div className='grid grid-cols-2 gap-24 place-items-center mt-12'>
+      <div className='grid grid-cols-2 gap-24 place-items-center my-12'>
         {works.map((work, idx) => (
           <motion.div
             key={idx}
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ scale: 0.9, y: 50, opacity: 0 }}
+            whileInView={{ scale: 1, y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: expoEaseInOut, delay: idx * 0.2 }}
             viewport={{ amount: 0.2, once: true }}
+            className='origin-bottom'
           >
             <Link href={work.link}>
               <Image
