@@ -92,7 +92,7 @@ const CustomCursor = () => {
     top: `${y}px`,
   };
 
-  return isMobile ? (
+  return !isMobile ? (
     <>
       <div
         className={cn(
