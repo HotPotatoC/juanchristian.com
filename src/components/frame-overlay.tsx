@@ -10,11 +10,15 @@ import * as React from "react";
 
 type FrameProps = {
   menuStatus: "open" | "closed";
+  frameSize: string;
 } & HTMLMotionProps<"div">;
 
-const frameSize = "10px";
-
-const LeftFrame = ({ menuStatus, className, ...props }: FrameProps) => (
+const LeftFrame = ({
+  menuStatus,
+  frameSize,
+  className,
+  ...props
+}: FrameProps) => (
   <motion.div
     initial={{ width: "screen" }}
     animate={menuStatus}
@@ -31,7 +35,12 @@ const LeftFrame = ({ menuStatus, className, ...props }: FrameProps) => (
   />
 );
 
-const RightFrame = ({ menuStatus, className, ...props }: FrameProps) => (
+const RightFrame = ({
+  menuStatus,
+  frameSize,
+  className,
+  ...props
+}: FrameProps) => (
   <motion.div
     initial={{ width: "screen" }}
     animate={menuStatus}
@@ -48,7 +57,12 @@ const RightFrame = ({ menuStatus, className, ...props }: FrameProps) => (
   />
 );
 
-const TopFrame = ({ menuStatus, className, ...props }: FrameProps) => (
+const TopFrame = ({
+  menuStatus,
+  frameSize,
+  className,
+  ...props
+}: FrameProps) => (
   <motion.div
     initial={{ height: "screen" }}
     animate={menuStatus}
@@ -65,7 +79,12 @@ const TopFrame = ({ menuStatus, className, ...props }: FrameProps) => (
   />
 );
 
-const BottomFrame = ({ menuStatus, className, ...props }: FrameProps) => (
+const BottomFrame = ({
+  menuStatus,
+  frameSize,
+  className,
+  ...props
+}: FrameProps) => (
   <motion.div
     initial={{ height: "screen" }}
     animate={menuStatus}
@@ -83,7 +102,8 @@ const BottomFrame = ({ menuStatus, className, ...props }: FrameProps) => (
 );
 
 export default function FrameOverlay() {
-  const { isOverlayVisible, closeOverlay, expandOverlay } = useFrameOverlay();
+  const { isOverlayVisible, closeOverlay, expandOverlay, frameSize } =
+    useFrameOverlay();
   const { isOpen: menuIsOpen } = useMenu();
 
   React.useEffect(() => {
@@ -112,18 +132,22 @@ export default function FrameOverlay() {
     <>
       <LeftFrame
         menuStatus={isOverlayVisible ? "closed" : "open"}
+        frameSize={frameSize}
         className={frameVariants({ path })}
       />
       <RightFrame
         menuStatus={isOverlayVisible ? "closed" : "open"}
+        frameSize={frameSize}
         className={frameVariants({ path })}
       />
       <TopFrame
         menuStatus={isOverlayVisible ? "closed" : "open"}
+        frameSize={frameSize}
         className={frameVariants({ path })}
       />
       <BottomFrame
         menuStatus={isOverlayVisible ? "closed" : "open"}
+        frameSize={frameSize}
         className={frameVariants({ path })}
       />
     </>
