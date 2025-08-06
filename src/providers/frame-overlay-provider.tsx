@@ -7,7 +7,7 @@ type FrameOverlayContextType = {
   expandOverlay: () => void;
   closeOverlay: () => void;
   frameSize: string;
-  updateFrameSize: (size: string) => void;
+  setFrameSize: (size: string) => void;
 };
 
 const FrameOverlayContext = React.createContext<
@@ -31,10 +31,10 @@ export const FrameOverlayProvider: React.FC<React.PropsWithChildren> = ({
     setIsOverlayVisible(false);
   };
 
-  const [frameSize, setFrameSize] = React.useState("20px");
+  const [frameSize, _setFrameSize] = React.useState("20px");
 
-  const updateFrameSize = (size: string) => {
-    setFrameSize(size);
+  const setFrameSize = (size: string) => {
+    _setFrameSize(size);
   };
 
   return (
@@ -45,7 +45,7 @@ export const FrameOverlayProvider: React.FC<React.PropsWithChildren> = ({
         expandOverlay,
         closeOverlay,
         frameSize,
-        updateFrameSize,
+        setFrameSize,
       }}
     >
       {children}

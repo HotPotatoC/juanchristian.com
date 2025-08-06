@@ -1,7 +1,6 @@
 "use client";
 
 import AnimateSlide from "@/components/animated/slide";
-import Icon from "@/components/icons";
 import { expoEaseInOut } from "@/lib/animation-transitions";
 import { useFrameOverlay } from "@/providers/frame-overlay-provider";
 import { motion, useInView } from "motion/react";
@@ -16,25 +15,17 @@ import Image from "next/image";
 export default function HomeScreen() {
   return (
     <>
-      <section className='@container/headline mx-auto w-full max-w-7xl mt-64'>
-        <SectionHeadline />
-        {/* <SectionLinks /> */}
-        {/* <SectionLinksAnimated /> */}
-      </section>
+      <SectionHeadline />
       <SectionSelectedWorks />
     </>
   );
 }
 
 const SectionHeadline = () => (
-  <>
+  <section className='@container/headline mx-auto w-full max-w-7xl mt-64'>
     <h1 className='font-bold text-[13.57cqw]/tight text-red whitespace-nowrap'>
       Hello! I{`'`}m Juan!
     </h1>
-
-    {/* <h1 className='font-bold text-[13.931cqw]/tight text-red whitespace-nowrap'>
-      Juan Christian
-    </h1> */}
 
     <section className='flex justify-between items-baseline w-full mb-8 bg-red px-4 py-3 md:px-8 md:py-6'>
       <span className='font-bold text-[6cqw] md:text-[3cqw]/tight text-white selection:bg-white! selection:text-red!'>
@@ -44,99 +35,21 @@ const SectionHeadline = () => (
         indonesia
       </span>
     </section>
-  </>
+  </section>
 );
 
-const SectionLinks = () => {
-  const links = [
-    { href: "/works", label: "works" },
-    { href: "/about", label: "about me" },
-    { href: "/blog", label: "blog" },
-    { href: "/contact", label: "contact me" },
-  ];
-
-  return (
-    <div className='w-full bg-white'>
-      {/* Container for links that will be revealed */}
-      <section className='flex flex-col space-y-6 lg:flex-row lg:space-x-2 lg:space-y-0 justify-between items-baseline w-full py-6 px-8'>
-        {links.map(({ href, label }) => (
-          <Link href={href} key={href}>
-            <div className='flex space-x-4 items-baseline group'>
-              <span className='text-[5cqw]/tight lg:text-[3cqw]/tight text-black group-hover:text-red font-bold selection:bg-black! selection:text-white!'>
-                {label}
-              </span>
-              <Icon
-                name='arrow-up-right'
-                className='inline-block size-[3cqw] lg:size-[1.5cqw] text-black group-hover:text-red'
-              />
-            </div>
-          </Link>
-        ))}
-      </section>
-    </div>
-  );
-};
-
-const SectionLinksAnimated = () => {
-  const links = [
-    { href: "/works", label: "works" },
-    { href: "/about", label: "about me" },
-    { href: "/blog", label: "blog" },
-    { href: "/contact", label: "contact me" },
-  ];
-
-  return (
-    <div className='relative w-full'>
-      {/* Container for links that will be revealed */}
-      <section className='flex justify-between items-baseline w-full py-6 px-8'>
-        {links.map(({ href, label }) => (
-          <Link href={href} key={href}>
-            <span className='text-[3cqw]/tight text-red font-bold'>
-              {label}
-            </span>
-          </Link>
-        ))}
-      </section>
-
-      {/* Animated mask that will reveal the content */}
-      <motion.div
-        initial={{ scaleX: 1 }}
-        animate={{ scaleX: 0 }}
-        transition={{
-          duration: 1,
-          ease: expoEaseInOut,
-          delay: 0.4,
-        }}
-        className='absolute inset-0 bg-black origin-right pointer-events-none'
-      />
-
-      {/* Border that expands */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{
-          duration: 1,
-          ease: expoEaseInOut,
-          delay: 0.4,
-        }}
-        className='absolute inset-0 border-[6px] border-red bg-transparent origin-left pointer-events-none'
-      />
-    </div>
-  );
-};
-
 const SectionSelectedWorks = () => {
-  const { updateFrameSize } = useFrameOverlay();
-  const ref = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { amount: 0.8 });
+  const { setFrameSize } = useFrameOverlay();
+  const expandFrameOverlayTargetRef = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(expandFrameOverlayTargetRef);
 
   React.useEffect(() => {
     if (isInView) {
-      updateFrameSize("10px");
+      setFrameSize("10px");
     } else {
-      updateFrameSize("20px");
+      setFrameSize("20px");
     }
-  }, [isInView, updateFrameSize]);
+  }, [isInView, setFrameSize]);
 
   const works = [
     {
@@ -163,8 +76,8 @@ const SectionSelectedWorks = () => {
 
   return (
     <section
-      className='@container/featured-works mx-auto w-full h-full mt-[550px] mb-[900px]'
-      ref={ref}
+      className='@container/featured-works mx-auto w-full h-fit mt-[550px] mb-[900px]'
+      ref={expandFrameOverlayTargetRef}
     >
       {/* <motion.div
         className='fixed left-0 -bottom-12 size-[600px] border-[32px] border-red'
