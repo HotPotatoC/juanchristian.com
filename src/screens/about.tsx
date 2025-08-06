@@ -6,7 +6,7 @@ import ImageMe from "@/assets/me.png";
 import Image from "next/image";
 export default function AboutScreen() {
   return (
-    <>
+    <section className='@container/about mx-auto w-full max-w-7xl mt-24'>
       <section className='flex flex-col space-y-6 font-sans font-medium text-white text-center text-2xl md:text-4xl'>
         <p>
           Juan is born and raised in Indonesia, who studies software
@@ -40,6 +40,6 @@ export default function AboutScreen() {
         alt='Juan Christian'
         className='select-none fixed -bottom-14 -right-12 object-cover size-96 rotate-[-20deg] pointer-events-none z-[-1000]'
       />
-    </>
+    </section>
   );
 }

@@ -1,68 +1,120 @@
 "use client";
 import { expoEaseInOut } from "@/lib/animation-transitions";
-import { motion } from "motion/react";
+import { cn } from "@/lib/common";
+import { useMenu } from "@/providers/menu-provider";
+import { cva } from "class-variance-authority";
+import { HTMLMotionProps, motion } from "motion/react";
+import { usePathname } from "next/navigation";
 
 type FrameProps = {
-  size: string;
-};
+  menuStatus: "open" | "closed";
+} & HTMLMotionProps<"div">;
 
-const LeftFrame = ({ size }: FrameProps) => (
+const frameSize = "10px";
+
+const LeftFrame = ({ menuStatus, className, ...props }: FrameProps) => (
   <motion.div
     initial={{ width: "screen" }}
-    animate={{ width: size }}
-    className='fixed left-0 top-0 z-[1000] w-screen h-screen bg-white'
+    animate={menuStatus}
+    variants={{
+      open: { width: 0 },
+      closed: { width: frameSize },
+    }}
+    className={cn(className, "fixed left-0 top-0")}
     transition={{
       duration: 1,
       ease: expoEaseInOut,
     }}
+    {...props}
   />
 );
 
-const RightFrame = ({ size }: FrameProps) => (
+const RightFrame = ({ menuStatus, className, ...props }: FrameProps) => (
   <motion.div
     initial={{ width: "screen" }}
-    animate={{ width: size }}
-    className='fixed right-0 top-0 z-[1000] w-screen h-screen bg-white'
+    animate={menuStatus}
+    variants={{
+      open: { width: 0 },
+      closed: { width: frameSize },
+    }}
+    className={cn(className, "fixed right-0 top-0")}
     transition={{
       duration: 1,
       ease: expoEaseInOut,
     }}
+    {...props}
   />
 );
 
-const TopFrame = ({ size }: FrameProps) => (
+const TopFrame = ({ menuStatus, className, ...props }: FrameProps) => (
   <motion.div
     initial={{ height: "screen" }}
-    animate={{ height: size }}
-    className='fixed left-0 top-0 z-[1000] w-screen h-screen bg-white'
+    animate={menuStatus}
+    variants={{
+      open: { height: 0 },
+      closed: { height: frameSize },
+    }}
+    className={cn(className, "fixed left-0 top-0")}
     transition={{
       duration: 1,
       ease: expoEaseInOut,
     }}
+    {...props}
   />
 );
 
-const BottomFrame = ({ size }: FrameProps) => (
+const BottomFrame = ({ menuStatus, className, ...props }: FrameProps) => (
   <motion.div
     initial={{ height: "screen" }}
-    animate={{ height: size }}
-    className='fixed left-0 bottom-0 z-[1000] w-screen h-screen bg-white'
+    animate={menuStatus}
+    variants={{
+      open: { height: 0 },
+      closed: { height: frameSize },
+    }}
+    className={cn(className, "fixed left-0 bottom-0")}
     transition={{
       duration: 1,
       ease: expoEaseInOut,
     }}
+    {...props}
   />
 );
-
-const frameSize = "15px";
 
 export default function FrameOverlay() {
+  const { isOpen } = useMenu();
+
+  const pathVariants = {
+    home: "bg-red",
+    about: "bg-red",
+    works: "bg-red",
+  };
+
+  const path = usePathname().replace("/", "") as keyof typeof pathVariants;
+
+  const frameVariants = cva(["z-[1000]", "w-screen", "h-screen", "bg-red"], {
+    variants: {
+      path: pathVariants,
+    },
+  });
+
   return (
     <>
-      <LeftFrame size={frameSize} />
-      <RightFrame size={frameSize} />
-      <TopFrame size={frameSize} />
-      <BottomFrame size={frameSize} />
+      <LeftFrame
+        menuStatus={isOpen ? "open" : "closed"}
+        className={frameVariants({ path })}
+      />
+      <RightFrame
+        menuStatus={isOpen ? "open" : "closed"}
+        className={frameVariants({ path })}
+      />
+      <TopFrame
+        menuStatus={isOpen ? "open" : "closed"}
+        className={frameVariants({ path })}
+      />
+      <BottomFrame
+        menuStatus={isOpen ? "open" : "closed"}
+        className={frameVariants({ path })}
+      />
     </>
   );
 }

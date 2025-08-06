@@ -2,20 +2,24 @@
 
 import Icon from "@/components/icons";
 import { expoEaseInOut } from "@/lib/animation-transitions";
-import { motion, useScroll, useSpring } from "motion/react";
+import { motion, useScroll } from "motion/react";
 import Link from "next/link";
+import * as React from "react";
 
 // import SlideUp from "@/components/animated/slide-up";
 
 export default function HomeScreen() {
   return (
-    <section className='mt-12 mb-[900px]'>
-      <SectionHeadline />
-      {/* <SectionLinks /> */}
-      {/* <SectionLinksAnimated /> */}
-
-      <SectionSelectedWorks />
-    </section>
+    <>
+      <section className='@container/headline mx-auto w-full max-w-7xl mt-32'>
+        <SectionHeadline />
+        {/* <SectionLinks /> */}
+        {/* <SectionLinksAnimated /> */}
+      </section>
+      <section className='@container/featured-works mx-auto w-full mb-[900px]'>
+        <SectionSelectedWorks />
+      </section>
+    </>
   );
 }
 
@@ -29,11 +33,11 @@ const SectionHeadline = () => (
       Juan Christian
     </h1> */}
 
-    <section className='flex justify-between items-baseline w-full mb-8 bg-green px-4 py-3 md:px-8 md:py-6'>
-      <span className='font-bold text-[6cqw] md:text-[3cqw]/tight text-white'>
+    <section className='flex justify-between items-baseline w-full mb-8 bg-red px-4 py-3 md:px-8 md:py-6'>
+      <span className='font-bold text-[6cqw] md:text-[3cqw]/tight text-white selection:bg-white! selection:text-red!'>
         software engineer
       </span>
-      <span className='font-bold text-[6cqw] md:text-[3cqw]/tight text-white'>
+      <span className='font-bold text-[6cqw] md:text-[3cqw]/tight text-white selection:bg-white! selection:text-red!'>
         indonesia
       </span>
     </section>
@@ -55,7 +59,7 @@ const SectionLinks = () => {
         {links.map(({ href, label }) => (
           <Link href={href} key={href}>
             <div className='flex space-x-4 items-baseline group'>
-              <span className='text-[5cqw]/tight lg:text-[3cqw]/tight text-black group-hover:text-red font-bold'>
+              <span className='text-[5cqw]/tight lg:text-[3cqw]/tight text-black group-hover:text-red font-bold selection:bg-black! selection:text-white!'>
                 {label}
               </span>
               <Icon
@@ -100,7 +104,7 @@ const SectionLinksAnimated = () => {
           ease: expoEaseInOut,
           delay: 0.4,
         }}
-        className='absolute inset-0 bg-white origin-right pointer-events-none'
+        className='absolute inset-0 bg-black origin-right pointer-events-none'
       />
 
       {/* Border that expands */}
@@ -119,30 +123,51 @@ const SectionLinksAnimated = () => {
 };
 
 const SectionSelectedWorks = () => {
-  const { scrollYProgress } = useScroll();
-  const scale = useSpring(scrollYProgress, {
-    stiffness: 500,
-    damping: 50,
-    restDelta: 0.001,
+  const scrollTargetRef = React.useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollTargetRef,
+    offset: ["end end", "start start"],
   });
+  // const x = useTransform(scrollYProgress, [0, 1], ["150%", "-200%"]);
 
-  const rotate = useSpring(scrollYProgress, {
-    stiffness: 500,
-    damping: 20,
-    restDelta: 0.1,
-  });
+  // const rotate = useSpring(scrollYProgress, {
+  //   stiffness: 500,
+  //   damping: 20,
+  //   restDelta: 0.1,
+  // });
+
   return (
-    <section className='relative mt-[550px]'>
-      <motion.div
+    <section className='my-[550px]' ref={scrollTargetRef}>
+      {/* <motion.div
         className='fixed left-0 -bottom-12 size-[600px] border-[32px] border-red'
         style={{
           scale,
           rotate,
         }}
-      />
-      <h1 className='font-bold text-6xl text-white whitespace-nowrap'>
-        SELECTED WORKS
-      </h1>
+      /> */}
+      <div className='bg-white w-fit'>
+        <motion.h1
+          initial={{
+            y: 50,
+            rotateY: 25,
+            rotateX: 25,
+            rotateZ: -10,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            rotateY: 0,
+            rotateX: 0,
+            rotateZ: 0,
+            opacity: 1,
+          }}
+          transition={{ duration: 1, ease: expoEaseInOut }}
+          viewport={{ amount: 0.8, once: true }}
+          className='text-[14cqw] md:text-[9cqw] text-red whitespace-nowrap selection:bg-red! selection:text-white! mb-8'
+        >
+          featured works
+        </motion.h1>
+      </div>
     </section>
   );
 };

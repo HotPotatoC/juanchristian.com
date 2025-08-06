@@ -1,11 +1,11 @@
 import FrameOverlay from "@/components/frame-overlay";
-import Header from "@/components/header";
-import NoiseOverlay from "@/components/noise-overlay";
+import Menu from "@/components/menu";
 import buildSEO from "@/lib/seo";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import "./globals.css";
+import Providers from "./providers";
 
 const ppGoshaSans = localFont({
   variable: "--font-gosha-sans",
@@ -21,7 +21,6 @@ const ppGoshaSans = localFont({
       style: "normal",
     },
   ],
-  display: "swap",
 });
 
 const ppNeueMontreal = localFont({
@@ -50,6 +49,22 @@ const ppNeueMontreal = localFont({
   ],
 });
 
+const ppEditorialNew = localFont({
+  variable: "--font-editorial-new",
+  src: [
+    {
+      path: "./fonts/PPEditorialNew-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/PPEditorialNew-Ultrabold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+});
+
 export const metadata: Metadata = buildSEO({
   title: "Juan Christian — Indonesian Developer",
   description: "Juan Christian is a Developer based in Indonesia",
@@ -69,19 +84,18 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      suppressHydrationWarning
       lang='en'
-      className={`${ppGoshaSans.variable} ${ppNeueMontreal.variable}`}
+      className={`${ppGoshaSans.variable} ${ppNeueMontreal.variable} ${ppEditorialNew.variable}`}
     >
-      <body className='font-gosha overflow-x-hidden'>
-        <NoiseOverlay />
-        <FrameOverlay />
-        <DynamicCustomCursor />
-        <main className='w-full h-screen px-6 md:px-12 py-8'>
-          <Header />
-          <section className='@container/main mx-auto w-full max-w-7xl'>
-            {children}
-          </section>
-        </main>
+      <body suppressHydrationWarning className='font-gosha overflow-x-hidden'>
+        <Providers>
+          {/* <NoiseOverlay /> */}
+          <FrameOverlay />
+          <DynamicCustomCursor />
+          <Menu />
+          <main className='w-full h-screen px-6 md:px-12 py-8'>{children}</main>
+        </Providers>
       </body>
     </html>
   );

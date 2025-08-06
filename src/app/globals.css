@@ -39,6 +39,7 @@
 
   --font-gosha: var(--font-gosha-sans);
   --font-sans: var(--font-neue-montreal);
+  --font-serif: var(--font-editorial-new);
 
   --ease-in-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
