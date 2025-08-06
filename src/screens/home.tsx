@@ -1,5 +1,6 @@
 "use client";
 
+import AnimateSlide from "@/components/animated/slide";
 import Icon from "@/components/icons";
 import { expoEaseInOut } from "@/lib/animation-transitions";
 import { motion, useScroll } from "motion/react";
@@ -11,7 +12,7 @@ import * as React from "react";
 export default function HomeScreen() {
   return (
     <>
-      <section className='@container/headline mx-auto w-full max-w-7xl mt-32'>
+      <section className='@container/headline mx-auto w-full max-w-7xl mt-64'>
         <SectionHeadline />
         {/* <SectionLinks /> */}
         {/* <SectionLinksAnimated /> */}
@@ -145,28 +146,40 @@ const SectionSelectedWorks = () => {
           rotate,
         }}
       /> */}
-      <div className='bg-white w-fit'>
-        <motion.h1
-          initial={{
-            y: 50,
-            rotateY: 25,
-            rotateX: 25,
-            rotateZ: -10,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            rotateY: 0,
-            rotateX: 0,
-            rotateZ: 0,
-            opacity: 1,
-          }}
-          transition={{ duration: 1, ease: expoEaseInOut }}
+      <AnimateSlide direction='right' delay={0.5}>
+        <span className='text-2xl text-red'>01</span>
+      </AnimateSlide>
+      <div className='relative w-fit'>
+        <div className='relative z-20'>
+          <motion.h1
+            initial={{
+              y: 50,
+              rotateY: 25,
+              rotateX: 25,
+              rotateZ: -10,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              rotateY: 0,
+              rotateX: 0,
+              rotateZ: 0,
+              opacity: 1,
+            }}
+            transition={{ duration: 1, ease: expoEaseInOut }}
+            viewport={{ amount: 0.8, once: true }}
+            className='font-bold text-[14cqw] md:text-[9cqw] text-white whitespace-nowrap selection:bg-white! selection:text-red! mb-8'
+          >
+            featured works
+          </motion.h1>
+        </div>
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 1, ease: expoEaseInOut, delay: 0.4 }}
           viewport={{ amount: 0.8, once: true }}
-          className='text-[14cqw] md:text-[9cqw] text-red whitespace-nowrap selection:bg-red! selection:text-white! mb-8'
-        >
-          featured works
-        </motion.h1>
+          className='absolute inset-0 origin-bottom z-10 bg-red'
+        />
       </div>
     </section>
   );

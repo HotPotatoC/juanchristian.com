@@ -1,10 +1,12 @@
 "use client";
 import { expoEaseInOut } from "@/lib/animation-transitions";
 import { cn } from "@/lib/common";
+import { useFrameOverlay } from "@/providers/frame-overlay-provider";
 import { useMenu } from "@/providers/menu-provider";
 import { cva } from "class-variance-authority";
 import { HTMLMotionProps, motion } from "motion/react";
 import { usePathname } from "next/navigation";
+import * as React from "react";
 
 type FrameProps = {
   menuStatus: "open" | "closed";
@@ -81,7 +83,16 @@ const BottomFrame = ({ menuStatus, className, ...props }: FrameProps) => (
 );
 
 export default function FrameOverlay() {
-  const { isOpen } = useMenu();
+  const { isOverlayVisible, closeOverlay, expandOverlay } = useFrameOverlay();
+  const { isOpen: menuIsOpen } = useMenu();
+
+  React.useEffect(() => {
+    if (menuIsOpen) {
+      closeOverlay();
+    } else if (!menuIsOpen && !isOverlayVisible) {
+      expandOverlay();
+    }
+  }, [menuIsOpen, closeOverlay, expandOverlay, isOverlayVisible]);
 
   const pathVariants = {
     home: "bg-red",
@@ -100,19 +111,19 @@ export default function FrameOverlay() {
   return (
     <>
       <LeftFrame
-        menuStatus={isOpen ? "open" : "closed"}
+        menuStatus={isOverlayVisible ? "closed" : "open"}
         className={frameVariants({ path })}
       />
       <RightFrame
-        menuStatus={isOpen ? "open" : "closed"}
+        menuStatus={isOverlayVisible ? "closed" : "open"}
         className={frameVariants({ path })}
       />
       <TopFrame
-        menuStatus={isOpen ? "open" : "closed"}
+        menuStatus={isOverlayVisible ? "closed" : "open"}
         className={frameVariants({ path })}
       />
       <BottomFrame
-        menuStatus={isOpen ? "open" : "closed"}
+        menuStatus={isOverlayVisible ? "closed" : "open"}
         className={frameVariants({ path })}
       />
     </>

@@ -27,11 +27,11 @@ export default function Menu() {
 
   return (
     <>
-      <header className='@container/header mx-auto w-full max-w-7xl px-4 py-8'>
+      <header className='fixed z-[101] left-0 right-0 @container/header mx-auto w-full max-w-7xl px-4 py-8'>
         <nav className='flex justify-end items-center select-none'>
           <Button
             onClick={toggleMenu}
-            className='z-[101] flex items-center space-x-4 px-4 py-2 group hover:bg-red transition-colors duration-500 ease-in-expo'
+            className='flex items-center space-x-4 px-4 py-2 group hover:bg-red transition-colors duration-500 ease-in-expo'
           >
             {!isOpen && (
               <Icon
