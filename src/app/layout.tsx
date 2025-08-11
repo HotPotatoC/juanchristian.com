@@ -1,6 +1,5 @@
 import FrameOverlay from "@/components/frame-overlay";
 import Menu from "@/components/menu";
-import NoiseOverlay from "@/components/noise-overlay";
 import buildSEO from "@/lib/seo";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -67,8 +66,8 @@ const ppEditorialNew = localFont({
 });
 
 export const metadata: Metadata = buildSEO({
-  title: "Juan Christian — Indonesian Developer",
-  description: "Juan Christian is a Developer based in Indonesia",
+  title: "Juan Christian — Software Engineer",
+  description: "Juan Christian is a Software Engineer based in Indonesia",
 });
 
 const DynamicCustomCursor = dynamic(
@@ -91,7 +90,7 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning className='font-gosha overflow-x-hidden'>
         <Providers>
-          <NoiseOverlay />
+          {/* <NoiseOverlay /> */}
           <FrameOverlay />
           <DynamicCustomCursor />
           <Menu />

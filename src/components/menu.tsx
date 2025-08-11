@@ -59,7 +59,7 @@ export default function Menu() {
               initial={{ x: -2000 }}
               animate={{ x: 0 }}
               exit={{ x: -2000 }}
-              transition={{ duration: 1, ease: expoEaseInOut }}
+              transition={{ duration: 0.5, ease: expoEaseInOut }}
               className='fixed left-0 top-0 w-full h-screen z-[100]'
             >
               <div className='@container/header-menu mx-auto flex items-start'>
