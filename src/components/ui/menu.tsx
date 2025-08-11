@@ -5,8 +5,8 @@ import { useMenu } from "@/providers/menu-provider";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import * as React from "react";
+import Icon from "../icons";
 import Button from "./button";
-import Icon from "./icons";
 
 export default function Menu() {
   const { isOpen, toggleMenu, closeMenu } = useMenu();

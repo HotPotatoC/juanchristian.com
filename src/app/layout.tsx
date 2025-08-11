@@ -1,5 +1,5 @@
-import FrameOverlay from "@/components/frame-overlay";
-import Menu from "@/components/menu";
+import FrameOverlay from "@/components/ui/frame-overlay";
+import Menu from "@/components/ui/menu";
 import buildSEO from "@/lib/seo";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -71,7 +71,7 @@ export const metadata: Metadata = buildSEO({
 });
 
 const DynamicCustomCursor = dynamic(
-  () => import("@/components/custom-cursor"),
+  () => import("@/components/ui/custom-cursor"),
   {
     ssr: true,
   }

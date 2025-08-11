@@ -1,6 +1,6 @@
 "use client";
 
-import AnimateSlide from "@/components/animated/slide";
+import AnimateSlide from "@/components/animations/slide";
 import { expoEaseInOut } from "@/lib/animation-transitions";
 import { useFrameOverlay } from "@/providers/frame-overlay-provider";
 import { motion, useInView } from "motion/react";
@@ -120,7 +120,7 @@ const SectionSelectedWorks = () => {
         />
       </div>
 
-      <div className='grid grid-cols-2 gap-24 place-items-center my-12'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 place-items-center my-12'>
         {works.map((work, idx) => (
           <motion.div
             key={idx}
