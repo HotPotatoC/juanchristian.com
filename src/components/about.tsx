@@ -1,6 +1,4 @@
 "use client";
-
-import ImageMe from "@/assets/me.png";
 import Image from "next/image";
 // import SlideUp from "@/components/animated/slide-up";
 
@@ -37,8 +35,10 @@ export default function AboutScreen() {
         </p>
       </section>
       <Image
-        src={ImageMe}
+        src='/me.png'
         alt='Juan Christian'
+        width={1006}
+        height={1006}
         className='select-none fixed -bottom-14 -right-12 object-cover size-96 rotate-[-20deg] pointer-events-none z-[-1000]'
       />
     </section>

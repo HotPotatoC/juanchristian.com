@@ -1,5 +1,5 @@
-import NoiseGif from "@/assets/noise.gif";
 import Image from "next/image";
+import NoiseGif from "~/noise.gif";
 
 export default function NoiseOverlay() {
   return (

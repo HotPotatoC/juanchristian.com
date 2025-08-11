@@ -7,8 +7,8 @@ import { motion, useInView } from "motion/react";
 import Link from "next/link";
 import * as React from "react";
 
-import ImageCuriona from "@/assets/works/curiona.png";
 import Image from "next/image";
+import ImageCuriona from "~/works/curiona.png";
 
 // import SlideUp from "@/components/animated/slide-up";
 
@@ -134,7 +134,8 @@ const SectionSelectedWorks = () => {
               <Image
                 src={work.imageSrc}
                 alt={work.title}
-                className='select-none w-xl h-full'
+                quality={100}
+                className='select-none w-xl h-full object-cover'
               />
             </Link>
           </motion.div>
