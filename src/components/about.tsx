@@ -9,7 +9,7 @@ export default function AboutScreen() {
         <p>
           Juan is born and raised in Indonesia, who studies software
           engineering,{" "}
-          <span className='font-gosha text-yellow'>
+          <span className='font-gosha text-yellow selection:bg-yellow! selection:text-blue!'>
             currently specializing in web development specifically in building
             backend applications.
           </span>{" "}
@@ -19,9 +19,11 @@ export default function AboutScreen() {
 
         <p>
           Juan is, unsurprisingly, a{" "}
-          <span className='font-gosha text-yellow'>geek</span>. Someone that is
-          passionate in technology, who also has a keen interest in esoteric
-          media from music, movies, animanga, games, etc.
+          <span className='font-gosha text-yellow selection:bg-yellow! selection:text-blue!'>
+            geek
+          </span>
+          . Someone that is passionate in technology, who also has a keen
+          interest in esoteric media from music, movies, animanga, games, etc.
         </p>
 
         <p>

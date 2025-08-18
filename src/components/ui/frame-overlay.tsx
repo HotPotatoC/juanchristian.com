@@ -26,7 +26,7 @@ const LeftFrame = ({
       open: { width: 0 },
       closed: { width: frameSize },
     }}
-    className={cn(className, "fixed left-0 top-0")}
+    className={cn(className, "left-0 top-0")}
     transition={{
       duration: 1,
       ease: expoEaseInOut,
@@ -48,7 +48,7 @@ const RightFrame = ({
       open: { width: 0 },
       closed: { width: frameSize },
     }}
-    className={cn(className, "fixed right-0 top-0")}
+    className={cn(className, "right-0 top-0")}
     transition={{
       duration: 1,
       ease: expoEaseInOut,
@@ -70,7 +70,7 @@ const TopFrame = ({
       open: { height: 0 },
       closed: { height: frameSize },
     }}
-    className={cn(className, "fixed left-0 top-0")}
+    className={cn(className, "left-0 top-0")}
     transition={{
       duration: 1,
       ease: expoEaseInOut,
@@ -92,7 +92,7 @@ const BottomFrame = ({
       open: { height: 0 },
       closed: { height: frameSize },
     }}
-    className={cn(className, "fixed left-0 bottom-0")}
+    className={cn(className, "left-0 bottom-0")}
     transition={{
       duration: 1,
       ease: expoEaseInOut,
@@ -116,7 +116,7 @@ export default function FrameOverlay() {
 
   const pathVariants = {
     home: "bg-red",
-    about: "bg-red",
+    about: "bg-yellow",
     works: "bg-red",
   };
 
@@ -128,27 +128,29 @@ export default function FrameOverlay() {
     },
   });
 
+  const className = cn("fixed", frameVariants({ path }));
+
   return (
     <>
       <LeftFrame
         menuStatus={isOverlayVisible ? "closed" : "open"}
         frameSize={frameSize}
-        className={frameVariants({ path })}
+        className={className}
       />
       <RightFrame
         menuStatus={isOverlayVisible ? "closed" : "open"}
         frameSize={frameSize}
-        className={frameVariants({ path })}
+        className={className}
       />
       <TopFrame
         menuStatus={isOverlayVisible ? "closed" : "open"}
         frameSize={frameSize}
-        className={frameVariants({ path })}
+        className={className}
       />
       <BottomFrame
         menuStatus={isOverlayVisible ? "closed" : "open"}
         frameSize={frameSize}
-        className={frameVariants({ path })}
+        className={className}
       />
     </>
   );

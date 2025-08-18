@@ -94,7 +94,8 @@ export default function RootLayout({
           <FrameOverlay />
           <DynamicCustomCursor />
           <Menu />
-          <main className='w-full h-screen px-6 md:px-12 py-8'>{children}</main>
+
+          {children}
         </Providers>
       </body>
     </html>
