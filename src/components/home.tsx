@@ -141,7 +141,7 @@ const SectionFeaturedWorks = () => {
         />
       </div>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-12 md:gap-24 place-items-center my-12'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-24 md:place-items-center my-12'>
         {works.map((work, idx) => (
           <motion.div
             key={idx}
@@ -152,7 +152,7 @@ const SectionFeaturedWorks = () => {
             className='h-32 origin-bottom'
           >
             <Link href={work.link} target={work.target}>
-              <h1 className='text-white text-center text-[10cqw] md:text-[4cqw]'>
+              <h1 className='text-white md:text-center text-4xl lg:text-6xl'>
                 {work.title}
               </h1>
               {/* <Image
